@@ -26,3 +26,6 @@ void CloseFilter::process(cl_command_queue GPUCommandQueue)
 	erode->process(GPUCommandQueue);
 }
 
+
+
+
