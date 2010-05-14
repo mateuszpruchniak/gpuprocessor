@@ -1,5 +1,5 @@
-﻿Build started 2010-05-09 22:03:49.
-     1>Project "C:\NVIDIA GPU Computing SDK\OpenCL\src\GPUProcessor_2.2\oclSobel.vcxproj" on node 2 (build target(s)).
+﻿Build started 5/14/2010 2:20:27 AM.
+     1>Project "C:\NVIDIA GPU Computing SDK\OpenCL\src\GPUProcessor\oclSobel.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\GPUProcessor.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
@@ -50,18 +50,19 @@
          Debug\RGB2HSV.obj
          Debug\RobertsFilter.obj
          Debug\SobelFilter.obj
+         Debug\tmp.obj
          Debug\Transformation.obj
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\GPUProcessor.exe.embed.manifest" /manifest Debug\GPUProcessor.exe.intermediate.manifest
          All outputs are up-to-date.
        LinkEmbedManifest:
          All outputs are up-to-date.
-         oclSobel.vcxproj -> C:\NVIDIA GPU Computing SDK\OpenCL\src\GPUProcessor_2.2\..\..\bin\Win32\Debug\GPUProcessor.exe
+         oclSobel.vcxproj -> C:\NVIDIA GPU Computing SDK\OpenCL\src\GPUProcessor\..\..\bin\Win32\Debug\GPUProcessor.exe
        FinalizeBuildStatus:
          Deleting file "Debug\GPUProcessor.unsuccessfulbuild".
          Touching "Debug\GPUProcessor.lastbuildstate".
-     1>Done Building Project "C:\NVIDIA GPU Computing SDK\OpenCL\src\GPUProcessor_2.2\oclSobel.vcxproj" (build target(s)).
+     1>Done Building Project "C:\NVIDIA GPU Computing SDK\OpenCL\src\GPUProcessor\oclSobel.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.04
+Time Elapsed 00:00:02.23

@@ -210,6 +210,7 @@
     <ClCompile Include="RGB2HSV.cpp" />
     <ClCompile Include="RobertsFilter.cpp" />
     <ClCompile Include="SobelFilter.cpp" />
+    <ClCompile Include="tmp.cpp" />
     <ClCompile Include="Transformation.cpp" />
   </ItemGroup>
   <ItemGroup>
