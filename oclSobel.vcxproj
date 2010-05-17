@@ -190,7 +190,7 @@
     <ClCompile Include="DilateFilter.cpp" />
     <ClCompile Include="ErodeFilter.cpp" />
     <ClCompile Include="Filter.cpp" />
-    <ClCompile Include="GPUProcessor.cpp" />
+    <ClCompile Include="GPUImageProcessor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GPUTransferManager.cpp" />
     <ClCompile Include="HighpassFilter.cpp" />
@@ -231,7 +231,7 @@
     <ClInclude Include="DilateFilter.h" />
     <ClInclude Include="ErodeFilter.h" />
     <ClInclude Include="Filter.h" />
-    <ClInclude Include="GPUProcessor.h" />
+    <ClInclude Include="GPUImageProcessor.h" />
     <ClInclude Include="GPUTransferManager.h" />
     <ClInclude Include="HighpassFilter.h" />
     <ClInclude Include="LaplaceFilter.h" />
