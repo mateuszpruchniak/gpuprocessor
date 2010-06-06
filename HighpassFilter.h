@@ -45,9 +45,9 @@ public:
 	HighpassFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
 	/*!
-	* Start processing.
+	* Start filtering.
 	*/
-	void process(cl_command_queue GPUCommandQueue);
+	bool filter(cl_command_queue GPUCommandQueue);;
 
 };
 

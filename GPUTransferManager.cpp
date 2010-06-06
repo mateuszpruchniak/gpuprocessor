@@ -18,14 +18,13 @@ GPUTransferManager::GPUTransferManager()
 	cmDevBuf = NULL;
     GPUInputOutput = NULL;
     cmPinnedBuf = NULL;
-	cmDevBufLUT = NULL;
 	cmDevBufMask1 = NULL;
 }
 
 GPUTransferManager::GPUTransferManager( cl_context GPUContextArg, cl_command_queue GPUCommandQueueArg, unsigned int width, unsigned int height, int channels )
 {
     //cout << "data transfer konstr" << endl;
-	cmDevBufLUT = NULL;
+	
 	cmDevBufMask1 = NULL;
 	cmDevBufMask2 = NULL;
 	nChannels = channels;
@@ -52,17 +51,7 @@ GPUTransferManager::GPUTransferManager( cl_context GPUContextArg, cl_command_que
 
 
 
-void GPUTransferManager::LoadLookUpTable(int* lut,int count)
-{
-	szBuffBytes = count * sizeof (unsigned int);
-	
-	// Create the device buffers in GMEM on each device, for now we have one device :)
-    cmDevBufLUT = clCreateBuffer(GPUContext, CL_MEM_READ_WRITE, szBuffBytes, NULL, &GPUError);
-    CheckError(GPUError);
 
-    GPUError = clEnqueueWriteBuffer(GPUCommandQueue, cmDevBufLUT, CL_TRUE, 0, szBuffBytes, (void*)lut, 0, NULL, NULL);
-    CheckError(GPUError);
-}
 
 void GPUTransferManager::LoadMask1(int* mask,int count)
 {
@@ -130,7 +119,6 @@ void GPUTransferManager::Cleanup()
     //cout << "\nStarting Cleanup...\n\n";
 
     if(cmDevBuf)clReleaseMemObject(cmDevBuf);
-	if(cmDevBufLUT)clReleaseMemObject(cmDevBufLUT);
 	if(cmDevBufMask1)clReleaseMemObject(cmDevBufMask1);
 	if(cmDevBufMask2)clReleaseMemObject(cmDevBufMask2);
 }

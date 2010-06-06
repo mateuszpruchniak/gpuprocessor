@@ -11,3 +11,9 @@
 ContextFilter::~ContextFilter(void)
 {
 }
+
+
+bool ContextFilter::filter(cl_command_queue GPUCommandQueue)
+{
+	return false;
+}

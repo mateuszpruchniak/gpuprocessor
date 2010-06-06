@@ -43,7 +43,7 @@ SobelFilter::~SobelFilter(void)
 {
 }
 
-void SobelFilter::process(cl_command_queue GPUCommandQueue)
+bool SobelFilter::filter(cl_command_queue GPUCommandQueue)
 {
-	HighpassFilter::process(GPUCommandQueue);
+	return HighpassFilter::filter(GPUCommandQueue);
 }

@@ -10,3 +10,9 @@
 MorphologyFilter::~MorphologyFilter(void)
 {
 }
+
+
+bool MorphologyFilter::filter(cl_command_queue GPUCommandQueue)
+{
+	return false;
+}

@@ -35,5 +35,10 @@ public:
 	*/
 	LinearFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): ContextFilter(source,GPUContext,transfer,KernelName)
 	{}
+
+	/*!
+	* Start filtering.
+	*/
+	bool filter(cl_command_queue GPUCommandQueue);
 };
 

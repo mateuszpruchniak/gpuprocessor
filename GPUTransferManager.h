@@ -32,10 +32,7 @@ class GPUTransferManager
 {
 	private:
                 
-		/*!
-		 * OpenCL context of device to use.
-		 */
-        cl_context GPUContext;             
+		         
 
 		/*!
 		 * Mapped Pointer to pinned Host input and output buffer for host processing.
@@ -47,10 +44,7 @@ class GPUTransferManager
 		 */
         cl_mem cmPinnedBuf;               
 
-		/*!
-		 * Command-queue for specific device.
-		 */
-        cl_command_queue GPUCommandQueue; 
+		
 
 		/*!
 		 * The size in bytes of the buffer memory object to be allocated.
@@ -71,15 +65,21 @@ class GPUTransferManager
     public:
 
 		/*!
+		 * Command-queue for specific device.
+		 */
+        cl_command_queue GPUCommandQueue; 
+
+		/*!
+		 * OpenCL context of device to use.
+		 */
+        cl_context GPUContext;    
+
+		/*!
 		 * OpenCL device memory input/output buffer object  
 		 */
         cl_mem cmDevBuf;                 
 
-		/*!
-		 * OpenCL device memory input buffer for LUT table.
-		 */
-		cl_mem cmDevBufLUT;                 
-
+		            
 		/*!
 		 * OpenCL device memory input buffer for mask.
 		 */
@@ -141,10 +141,7 @@ class GPUTransferManager
 		 */
         void CheckError(int );
 
-		/*!
-		 * Load lookup table to buffer.
-		 */
-		void LoadLookUpTable(int* lut, int count);
+		
 
 		/*!
 		 * Load mask to buffer.

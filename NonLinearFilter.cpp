@@ -16,3 +16,9 @@ NonLinearFilter::NonLinearFilter(void)
 NonLinearFilter::~NonLinearFilter(void)
 {
 }
+
+
+bool NonLinearFilter::filter(cl_command_queue GPUCommandQueue)
+{
+	return false;
+}

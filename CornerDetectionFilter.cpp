@@ -44,7 +44,7 @@ CornerDetectionFilter::CornerDetectionFilter(cl_context GPUContext ,GPUTransferM
 	maskH[8] = 0;
 }
 
-void CornerDetectionFilter::process(cl_command_queue GPUCommandQueue)
+bool CornerDetectionFilter::filter(cl_command_queue GPUCommandQueue)
 {
-	HighpassFilter::process(GPUCommandQueue);
+	return HighpassFilter::filter(GPUCommandQueue);
 }

@@ -43,7 +43,7 @@ LaplaceFilter::LaplaceFilter(cl_context GPUContext ,GPUTransferManager* transfer
 	maskH[8] = 0;
 }
 
-void LaplaceFilter::process(cl_command_queue GPUCommandQueue)
+bool LaplaceFilter::filter(cl_command_queue GPUCommandQueue)
 {
-	HighpassFilter::process(GPUCommandQueue);
+	return HighpassFilter::filter(GPUCommandQueue);
 }

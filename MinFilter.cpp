@@ -17,7 +17,7 @@ MinFilter::~MinFilter(void)
 {
 }
 
-void MinFilter::process(cl_command_queue GPUCommandQueue)
+bool MinFilter::filter(cl_command_queue GPUCommandQueue)
 {
  
     int iLocalPixPitch = iBlockDimX + 2;
@@ -27,7 +27,7 @@ void MinFilter::process(cl_command_queue GPUCommandQueue)
     GPUError |= clSetKernelArg(GPUFilter, 3, sizeof(cl_uint), (void*)&GPUTransfer->ImageWidth);
     GPUError |= clSetKernelArg(GPUFilter, 4, sizeof(cl_uint), (void*)&GPUTransfer->ImageHeight);
 	GPUError |= clSetKernelArg(GPUFilter, 5, sizeof(cl_int), (void*)&GPUTransfer->nChannels);
-    CheckError(GPUError);
+    if(GPUError) return false;
 
 	size_t GPULocalWorkSize[2]; 
     GPULocalWorkSize[0] = iBlockDimX;
@@ -36,8 +36,6 @@ void MinFilter::process(cl_command_queue GPUCommandQueue)
 
     GPUGlobalWorkSize[1] = shrRoundUp((int)GPULocalWorkSize[1], (int)GPUTransfer->ImageHeight);
 
-    
-
-    GPUError = clEnqueueNDRangeKernel( GPUCommandQueue, GPUFilter, 2, NULL, GPUGlobalWorkSize, GPULocalWorkSize, 0, NULL, NULL);
-    CheckError(GPUError);
+    if(clEnqueueNDRangeKernel( GPUCommandQueue, GPUFilter, 2, NULL, GPUGlobalWorkSize, GPULocalWorkSize, 0, NULL, NULL)) return false;
+	return true;
 }

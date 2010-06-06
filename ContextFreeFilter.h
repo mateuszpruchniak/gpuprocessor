@@ -35,5 +35,11 @@ public:
 	ContextFreeFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): Filter(source,GPUContext,transfer,KernelName)
     {
     }
+
+
+	/*!
+	* Start filtering.
+	*/
+	bool filter(cl_command_queue GPUCommandQueue);
 };
 

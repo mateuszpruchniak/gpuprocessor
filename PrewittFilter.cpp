@@ -45,7 +45,7 @@ PrewittFilter::~PrewittFilter(void)
 {
 }
 
-void PrewittFilter::process(cl_command_queue GPUCommandQueue)
+bool PrewittFilter::filter(cl_command_queue GPUCommandQueue)
 {
-	HighpassFilter::process(GPUCommandQueue);
+	return HighpassFilter::filter(GPUCommandQueue);
 }

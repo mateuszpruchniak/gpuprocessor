@@ -27,12 +27,10 @@ CloseFilter::CloseFilter(cl_context GPUContext ,GPUTransferManager* transfer)
 	dilate = new DilateFilter(GPUContext,transfer);
 }
 
-void CloseFilter::process(cl_command_queue GPUCommandQueue)
+
+bool CloseFilter::filter(cl_command_queue GPUCommandQueue)
 {
-	dilate->process(GPUCommandQueue);
-	erode->process(GPUCommandQueue);
+	if(dilate->filter(GPUCommandQueue)) return false;
+	if(erode->filter(GPUCommandQueue)) return false;
+	return true;
 }
-
-
-
-

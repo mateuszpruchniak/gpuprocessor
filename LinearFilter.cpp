@@ -16,3 +16,9 @@ LinearFilter::LinearFilter(void)
 LinearFilter::~LinearFilter(void)
 {
 }
+
+
+bool LinearFilter::filter(cl_command_queue GPUCommandQueue)
+{
+	return false;
+}

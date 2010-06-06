@@ -16,3 +16,8 @@ ContextFreeFilter::ContextFreeFilter(void)
 ContextFreeFilter::~ContextFreeFilter(void)
 {
 }
+
+bool ContextFreeFilter::filter(cl_command_queue GPUCommandQueue)
+{
+	return false;
+}

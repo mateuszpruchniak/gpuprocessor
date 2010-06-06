@@ -46,8 +46,8 @@ public:
 
 	
 	/*!
-	* Start processing.
+	* Start filtering.
 	*/
-	void process(cl_command_queue GPUCommandQueue);
+	bool filter(cl_command_queue GPUCommandQueue);
 };
 

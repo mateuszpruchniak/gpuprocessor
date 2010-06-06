@@ -23,6 +23,17 @@ private:
 	* Pointer to lookup table.
 	*/
 	int* lut;
+
+	/*!
+	* OpenCL device memory input buffer for LUT table.
+	*/
+	cl_mem cmDevBufLUT;     
+
+	/*!
+	* Load lookup table to buffer.
+	*/
+	void LoadLookUpTable(int* lut, int count,GPUTransferManager* transfer);
+
 public:
 
 	/*!
@@ -41,12 +52,15 @@ public:
 	LUTFilter(cl_context GPUContext ,GPUTransferManager* transfer, int* LUTArray): ContextFreeFilter("./OpenCL/LUTFilter.cl",GPUContext,transfer,"ckLUT")
 	{
 		lut = LUTArray;
+		LoadLookUpTable(lut , 256, transfer);
 	}
 
 	/*!
-	* Start processing.
+	* Start filtering.
 	*/
-	void process(cl_command_queue GPUCommandQueue);
+	bool filter(cl_command_queue GPUCommandQueue);
 
+
+	
 };
 

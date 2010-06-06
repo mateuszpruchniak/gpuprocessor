@@ -45,7 +45,7 @@ RobertsFilter::RobertsFilter(cl_context GPUContext ,GPUTransferManager* transfer
 }
 
 
-void RobertsFilter::process(cl_command_queue GPUCommandQueue)
+bool RobertsFilter::filter(cl_command_queue GPUCommandQueue)
 {
-	HighpassFilter::process(GPUCommandQueue);
+	return HighpassFilter::filter(GPUCommandQueue);
 }

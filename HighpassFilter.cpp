@@ -22,7 +22,7 @@ HighpassFilter::HighpassFilter(char* source, cl_context GPUContext ,GPUTransferM
 
 }
 
-void HighpassFilter::process(cl_command_queue GPUCommandQueue)
+bool HighpassFilter::filter(cl_command_queue GPUCommandQueue)
 {
 	GPUTransfer->LoadMask1(maskH,9);
 	GPUTransfer->LoadMask2(maskV,9);
@@ -38,7 +38,7 @@ void HighpassFilter::process(cl_command_queue GPUCommandQueue)
     GPUError |= clSetKernelArg(GPUFilter, 7, sizeof(cl_uint), (void*)&GPUTransfer->ImageWidth);
     GPUError |= clSetKernelArg(GPUFilter, 8, sizeof(cl_uint), (void*)&GPUTransfer->ImageHeight);
 	GPUError |= clSetKernelArg(GPUFilter, 9, sizeof(cl_int), (void*)&GPUTransfer->nChannels);
-    CheckError(GPUError);
+    if(GPUError) return false;
 
 	size_t GPULocalWorkSize[2]; 
     GPULocalWorkSize[0] = iBlockDimX;
@@ -47,8 +47,6 @@ void HighpassFilter::process(cl_command_queue GPUCommandQueue)
 
     GPUGlobalWorkSize[1] = shrRoundUp((int)GPULocalWorkSize[1], (int)GPUTransfer->ImageHeight);
 
-    
-
-    GPUError = clEnqueueNDRangeKernel( GPUCommandQueue, GPUFilter, 2, NULL, GPUGlobalWorkSize, GPULocalWorkSize, 0, NULL, NULL);
-    CheckError(GPUError);
+    if(clEnqueueNDRangeKernel( GPUCommandQueue, GPUFilter, 2, NULL, GPUGlobalWorkSize, GPULocalWorkSize, 0, NULL, NULL)) return false;
+	return true;
 }

@@ -16,3 +16,10 @@ Transformation::Transformation(void)
 Transformation::~Transformation(void)
 {
 }
+
+
+
+bool Transformation::filter(cl_command_queue GPUCommandQueue)
+{
+	return false;
+}

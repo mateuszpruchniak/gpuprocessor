@@ -30,7 +30,7 @@ GPUImageProcessor::GPUImageProcessor(int width,int height,int nChannels)
     GPUError = clGetDeviceIDs(cpPlatform, CL_DEVICE_TYPE_GPU, uiDevCount, cdDevices, NULL);
     CheckError(GPUError);
 
-    size_t szParmDataBytes;	
+    
     
     // Create the OpenCL context on a GPU device
     GPUContext = clCreateContext(0, uiNumAllDevs, cdDevices, NULL, NULL, &GPUError);
@@ -82,6 +82,6 @@ void GPUImageProcessor::process()
     int i = (int)filters.size();
     for( int j = 0 ; j < i ; j++)
     {
-        filters[j]->process(GPUCommandQueue);
+        filters[j]->filter(GPUCommandQueue);
     }
 }

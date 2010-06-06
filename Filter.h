@@ -98,7 +98,7 @@ class Filter
 		/*!
 		 * Virtual methods, processing image.
 		 */
-        virtual void process(cl_command_queue GPUCommandQueue){};
+		virtual bool filter(cl_command_queue GPUCommandQueue) = 0;
         
 		/*!
 		 * Check error code.

@@ -35,8 +35,8 @@ public:
 	SobelFilter(cl_context GPUContext ,GPUTransferManager* transfer);
 	
 	/*!
-	* Start processing.
+	* Start filtering.
 	*/
-	void process(cl_command_queue GPUCommandQueue);
+	bool filter(cl_command_queue GPUCommandQueue);
 };
 

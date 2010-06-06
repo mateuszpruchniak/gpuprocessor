@@ -19,7 +19,7 @@ BinarizationFilter::~BinarizationFilter(void)
 
 
 
-void BinarizationFilter::process(cl_command_queue GPUCommandQueue)
+bool BinarizationFilter::filter(cl_command_queue GPUCommandQueue)
 {
-	
+	return false;
 }

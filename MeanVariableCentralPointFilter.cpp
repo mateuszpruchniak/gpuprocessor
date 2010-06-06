@@ -18,8 +18,8 @@ MeanVariableCentralPointFilter::~MeanVariableCentralPointFilter(void)
 {
 }
 
-void MeanVariableCentralPointFilter::process(cl_command_queue GPUCommandQueue)
+bool MeanVariableCentralPointFilter::filter(cl_command_queue GPUCommandQueue)
 {
-	LowpassFilter::process(GPUCommandQueue);
+	return LowpassFilter::filter(GPUCommandQueue);
 }
 
