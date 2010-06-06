@@ -30,5 +30,6 @@ void DilateFilter::process(cl_command_queue GPUCommandQueue)
 
     GPUError = clEnqueueNDRangeKernel( GPUCommandQueue, GPUFilter, 2, NULL, GPUGlobalWorkSize, GPULocalWorkSize, 0, NULL, NULL);
     CheckError(GPUError);
+
 }
 
