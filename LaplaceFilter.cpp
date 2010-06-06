@@ -1,3 +1,10 @@
+/*!
+ * \file LaplaceFilter.cpp
+ * \brief Laplace filter, edge detection algorithm.
+ * \author Mateusz Pruchniak
+ * \date 2010-05-05
+ */
+
 #include "LaplaceFilter.h"
 
 
@@ -34,4 +41,9 @@ LaplaceFilter::LaplaceFilter(cl_context GPUContext ,GPUTransferManager* transfer
 	maskH[6] = 0;
 	maskH[7] = 0;
 	maskH[8] = 0;
+}
+
+void LaplaceFilter::process(cl_command_queue GPUCommandQueue)
+{
+	HighpassFilter::process(GPUCommandQueue);
 }

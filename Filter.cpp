@@ -1,3 +1,11 @@
+/*!
+ * \file Filter.cpp
+ * \brief Abstract class for all filters
+ *
+ * \author Mateusz Pruchniak
+ * \date 2010-05-05
+ */
+
 #include "Filter.h"
 
 Filter::Filter(void)
@@ -23,7 +31,7 @@ Filter::Filter(char* source, cl_context GPUContext ,GPUTransferManager* transfer
 	szKernelLengthSum = szKernelLength + szKernelLengthFilter;
 	char* sourceCL = new char[szKernelLengthSum];
 	strcpy(sourceCL,SourceOpenCL);
-	strncat (sourceCL, SourceOpenCLFilter,szKernelLength);
+	strcat (sourceCL, SourceOpenCLFilter);
 
     // creates a program object for a context, and loads the source code specified by the text strings in
     //the strings array into the program object. The devices associated with the program object are the
@@ -32,7 +40,7 @@ Filter::Filter(char* source, cl_context GPUContext ,GPUTransferManager* transfer
     CheckError(GPUError);
 
     // Build the program with 'mad' Optimization option
-    char *flags = "-cl-fast-relaxed-math";
+    char *flags = "-cl-mad-enable";
 
     GPUError = clBuildProgram(GPUProgram, 0, NULL, flags, NULL, NULL);
     CheckError(GPUError);

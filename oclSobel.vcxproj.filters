@@ -223,5 +223,8 @@
     <None Include="OpenCL\HighpassFilter.cl">
       <Filter>OpenCL</Filter>
     </None>
+    <None Include="OpenCL\RGB2HSV.cl">
+      <Filter>OpenCL</Filter>
+    </None>
   </ItemGroup>
 </Project>

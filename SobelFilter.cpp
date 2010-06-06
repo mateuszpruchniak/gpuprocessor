@@ -1,3 +1,10 @@
+/*!
+ * \file SobelFilter.cpp
+ * \brief Sobel filter, edge detection algorithm.
+ * \author Mateusz Pruchniak
+ * \date 2010-05-05
+ */
+
 #include "SobelFilter.h"
 
 
@@ -36,3 +43,7 @@ SobelFilter::~SobelFilter(void)
 {
 }
 
+void SobelFilter::process(cl_command_queue GPUCommandQueue)
+{
+	HighpassFilter::process(GPUCommandQueue);
+}

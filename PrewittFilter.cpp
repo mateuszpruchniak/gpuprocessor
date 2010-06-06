@@ -1,3 +1,11 @@
+/*!
+ * \file highpassfilter.cpp
+ * \brief Prewitt filter, edge detection algorithm.
+ * \author Mateusz Pruchniak
+ * \date 2010-05-05
+ */
+
+
 #include "PrewittFilter.h"
 
 
@@ -37,3 +45,7 @@ PrewittFilter::~PrewittFilter(void)
 {
 }
 
+void PrewittFilter::process(cl_command_queue GPUCommandQueue)
+{
+	HighpassFilter::process(GPUCommandQueue);
+}

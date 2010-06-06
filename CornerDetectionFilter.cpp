@@ -1,3 +1,10 @@
+/*!
+ * \file CornerDetectionFilter.cpp
+ * \brief Corner detection filter.
+ * \author Mateusz Pruchniak
+ * \date 2010-05-05
+ */
+
 #include "CornerDetectionFilter.h"
 
 
@@ -37,3 +44,7 @@ CornerDetectionFilter::CornerDetectionFilter(cl_context GPUContext ,GPUTransferM
 	maskH[8] = 0;
 }
 
+void CornerDetectionFilter::process(cl_command_queue GPUCommandQueue)
+{
+	HighpassFilter::process(GPUCommandQueue);
+}

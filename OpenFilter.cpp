@@ -1,3 +1,9 @@
+/*!
+ * \file OpenFilter.cpp
+ * \brief Open filter, (erode,dilate).
+ * \author Mateusz Pruchniak
+ * \date 2010-05-05
+ */
 #include "OpenFilter.h"
 
 

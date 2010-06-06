@@ -262,6 +262,7 @@
     <None Include="OpenCL\MaxFilter.cl" />
     <None Include="OpenCL\MedianFilter.cl" />
     <None Include="OpenCL\MinFilter.cl" />
+    <None Include="OpenCL\RGB2HSV.cl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

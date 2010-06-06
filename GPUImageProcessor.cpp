@@ -1,6 +1,13 @@
+
+/*!
+ * \file GPUImageProcessor.cpp
+ * \brief Class responsible for managing the image processing.
+ *
+ * \author Mateusz Pruchniak
+ * \date 2010-05-05
+ */
+
 #include "GPUImageProcessor.h"
-
-
 
 GPUImageProcessor::GPUImageProcessor(int width,int height,int nChannels)
 {
@@ -54,6 +61,7 @@ void GPUImageProcessor::CheckError(int code)
 
 GPUImageProcessor::~GPUImageProcessor()
 {
+	delete Transfer;
     int i = (int)filters.size();
     for( int j = 0 ; j < i ; j++)
     {

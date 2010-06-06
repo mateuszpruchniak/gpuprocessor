@@ -1,3 +1,10 @@
+/*!
+ * \file CloseFilter.h
+ * \brief Close filter, (dilate,erode).
+ * \author Mateusz Pruchniak
+ * \date 2010-05-05
+ */
+
 #include "CloseFilter.h"
 
 

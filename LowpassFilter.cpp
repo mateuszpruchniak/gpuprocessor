@@ -1,3 +1,11 @@
+/*!
+ * \file LowpassFilter.cpp
+ * \brief Lowpass filters.
+ * \author Mateusz Pruchniak
+ * \date 2010-05-05
+ */
+
+
 #include "LowpassFilter.h"
 
 
@@ -13,7 +21,7 @@ LowpassFilter::~LowpassFilter(void)
 
 void LowpassFilter::process(cl_command_queue GPUCommandQueue)
 {
-	GPUTransfer->LoadMask1(mask,9);
+	GPUTransfer->LoadMask1(mask,maskSize);
 
     int iLocalPixPitch = iBlockDimX + 2;
     GPUError = clSetKernelArg(GPUFilter, 0, sizeof(cl_mem), (void*)&GPUTransfer->cmDevBuf);
@@ -26,6 +34,7 @@ void LowpassFilter::process(cl_command_queue GPUCommandQueue)
 	GPUError |= clSetKernelArg(GPUFilter, 7, sizeof(cl_int), (void*)&GPUTransfer->nChannels);
     CheckError(GPUError);
 
+	size_t GPULocalWorkSize[2]; 
     GPULocalWorkSize[0] = iBlockDimX;
     GPULocalWorkSize[1] = iBlockDimY;
     GPUGlobalWorkSize[0] = shrRoundUp((int)GPULocalWorkSize[0], GPUTransfer->ImageWidth); 

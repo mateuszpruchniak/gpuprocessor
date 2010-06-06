@@ -1,3 +1,11 @@
+/*!
+ * \file GPUTransferManager.cpp
+ * \brief Class responsible for managing transfer to GPU.
+ *
+ * \author Mateusz Pruchniak
+ * \date 2010-05-05
+ */
+
 #include "GPUTransferManager.h"
 
 GPUTransferManager::~GPUTransferManager(void)
@@ -19,6 +27,7 @@ GPUTransferManager::GPUTransferManager( cl_context GPUContextArg, cl_command_que
     //cout << "data transfer konstr" << endl;
 	cmDevBufLUT = NULL;
 	cmDevBufMask1 = NULL;
+	cmDevBufMask2 = NULL;
 	nChannels = channels;
     GPUContext = GPUContextArg;
     ImageHeight = height;
@@ -58,6 +67,7 @@ void GPUTransferManager::LoadLookUpTable(int* lut,int count)
 void GPUTransferManager::LoadMask1(int* mask,int count)
 {
 	szBuffBytes = count * sizeof (unsigned int);
+	
 	
 	// Create the device buffers in GMEM on each device, for now we have one device :)
     cmDevBufMask1 = clCreateBuffer(GPUContext, CL_MEM_READ_WRITE, szBuffBytes, NULL, &GPUError);
@@ -122,6 +132,7 @@ void GPUTransferManager::Cleanup()
     if(cmDevBuf)clReleaseMemObject(cmDevBuf);
 	if(cmDevBufLUT)clReleaseMemObject(cmDevBufLUT);
 	if(cmDevBufMask1)clReleaseMemObject(cmDevBufMask1);
+	if(cmDevBufMask2)clReleaseMemObject(cmDevBufMask2);
 }
 
 IplImage* GPUTransferManager::GetImageFromGPU()

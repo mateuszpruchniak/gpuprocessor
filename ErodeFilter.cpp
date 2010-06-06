@@ -1,3 +1,10 @@
+/*!
+ * \file ErodeFilter.cpp
+ * \brief Erode filter.
+ * \author Mateusz Pruchniak
+ * \date 2010-05-05
+ */
+
 #include "ErodeFilter.h"
 
 
@@ -23,6 +30,7 @@ void ErodeFilter::process(cl_command_queue GPUCommandQueue)
 	GPUError |= clSetKernelArg(GPUFilter, 5, sizeof(cl_int), (void*)&GPUTransfer->nChannels);
     CheckError(GPUError);
 
+	size_t GPULocalWorkSize[2]; 
     GPULocalWorkSize[0] = iBlockDimX;
     GPULocalWorkSize[1] = iBlockDimY;
     GPUGlobalWorkSize[0] = shrRoundUp((int)GPULocalWorkSize[0], GPUTransfer->ImageWidth); 
