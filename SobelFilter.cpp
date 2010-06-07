@@ -36,6 +36,9 @@ SobelFilter::SobelFilter(cl_context GPUContext ,GPUTransferManager* transfer): H
 	maskH[6] = 1;
 	maskH[7] = 0;
 	maskH[8] = -1;
+
+	LoadMask(&cmDevBufMaskH,maskH,9,transfer);
+	LoadMask(&cmDevBufMaskV,maskV,9,transfer);
 }
 
 

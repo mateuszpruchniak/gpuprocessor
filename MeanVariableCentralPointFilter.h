@@ -33,16 +33,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	MeanVariableCentralPointFilter(cl_context GPUContext ,GPUTransferManager* transfer,int central): LowpassFilter("./OpenCL/LowpassFilter.cl",GPUContext,transfer,"ckConv")
-	{
-		mask = new int[9];
-		for(int i = 0 ; i < 9 ; ++i )
-		{
-			mask[i] = 1;
-		}
-
-		mask[4] = central;
-	}
+	MeanVariableCentralPointFilter(cl_context GPUContext ,GPUTransferManager* transfer,int central);
 
 	/*!
 	* Start filtering.

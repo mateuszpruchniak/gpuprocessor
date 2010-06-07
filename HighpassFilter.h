@@ -28,6 +28,22 @@ protected:
 	* Pointer to second mask.
 	*/
 	int* maskH;
+
+	/*!
+	* OpenCL device memory input buffer for mask (vertical).
+	*/
+	cl_mem cmDevBufMaskV;
+
+	/*!
+	* OpenCL device memory input buffer for mask (horizontal).
+	*/
+	cl_mem cmDevBufMaskH;
+
+	/*!
+	* Load mask to buffer.
+	*/
+	void LoadMask(cl_mem* cmDevBufMask,int* mask,int count,GPUTransferManager* transfer);
+
 public:
 	/*!
 	* Constructor.

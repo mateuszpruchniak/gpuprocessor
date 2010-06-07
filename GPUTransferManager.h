@@ -79,17 +79,6 @@ class GPUTransferManager
 		 */
         cl_mem cmDevBuf;                 
 
-		            
-		/*!
-		 * OpenCL device memory input buffer for mask.
-		 */
-		cl_mem cmDevBufMask1;
-
-		/*!
-		 * OpenCL device memory input buffer for mask.
-		 */
-		cl_mem cmDevBufMask2;
-
 		/*!
 		 * Image width.
 		 */
@@ -141,18 +130,5 @@ class GPUTransferManager
 		 */
         void CheckError(int );
 
-		
-
-		/*!
-		 * Load mask to buffer.
-		 */
-		void LoadMask1(int* mask, int count);
-
-		/*!
-		 * Load mask to buffer.
-		 */
-		void LoadMask2(int* mask, int count);
-
-		
 };
 

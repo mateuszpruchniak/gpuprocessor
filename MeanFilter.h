@@ -33,17 +33,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	MeanFilter(cl_context GPUContext ,GPUTransferManager* transfer): LowpassFilter("./OpenCL/LowpassFilter.cl",GPUContext,transfer,"ckConv")
-	{
-		maskSize = 9;
-		mask = new int[9];
-		for(int i = 0 ; i < 9 ; ++i )
-		{
-			mask[i] = 1;
-		}
-	}
-
-
+	MeanFilter(cl_context GPUContext ,GPUTransferManager* transfer);
 	
 	/*!
 	* Start filtering.

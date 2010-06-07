@@ -28,6 +28,17 @@ protected:
 	* Size of mask. (example mask 3x3, size = 9).
 	*/
 	int maskSize;
+
+	/*!
+	* OpenCL device memory input buffer for mask.
+	*/
+	cl_mem cmDevBufMask;
+
+	/*!
+	* Load mask to buffer.
+	*/
+	void LoadMask(int* mask, int count,GPUTransferManager* transfer);
+
 public:
 
 	/*!
@@ -43,8 +54,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	LowpassFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): LinearFilter(source,GPUContext,transfer,KernelName)
-	{}
+	LowpassFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
 	/*!
 	* Start filtering.

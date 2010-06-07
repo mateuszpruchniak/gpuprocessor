@@ -18,15 +18,12 @@ GPUTransferManager::GPUTransferManager()
 	cmDevBuf = NULL;
     GPUInputOutput = NULL;
     cmPinnedBuf = NULL;
-	cmDevBufMask1 = NULL;
 }
 
 GPUTransferManager::GPUTransferManager( cl_context GPUContextArg, cl_command_queue GPUCommandQueueArg, unsigned int width, unsigned int height, int channels )
 {
     //cout << "data transfer konstr" << endl;
 	
-	cmDevBufMask1 = NULL;
-	cmDevBufMask2 = NULL;
 	nChannels = channels;
     GPUContext = GPUContextArg;
     ImageHeight = height;
@@ -50,33 +47,6 @@ GPUTransferManager::GPUTransferManager( cl_context GPUContextArg, cl_command_que
 }
 
 
-
-
-
-void GPUTransferManager::LoadMask1(int* mask,int count)
-{
-	szBuffBytes = count * sizeof (unsigned int);
-	
-	
-	// Create the device buffers in GMEM on each device, for now we have one device :)
-    cmDevBufMask1 = clCreateBuffer(GPUContext, CL_MEM_READ_WRITE, szBuffBytes, NULL, &GPUError);
-    CheckError(GPUError);
-
-    GPUError = clEnqueueWriteBuffer(GPUCommandQueue, cmDevBufMask1, CL_TRUE, 0, szBuffBytes, (void*)mask, 0, NULL, NULL);
-    CheckError(GPUError);
-}
-
-void GPUTransferManager::LoadMask2(int* mask,int count)
-{
-	szBuffBytes = count * sizeof (unsigned int);
-	
-	// Create the device buffers in GMEM on each device, for now we have one device :)
-    cmDevBufMask2 = clCreateBuffer(GPUContext, CL_MEM_READ_WRITE, szBuffBytes, NULL, &GPUError);
-    CheckError(GPUError);
-
-    GPUError = clEnqueueWriteBuffer(GPUCommandQueue, cmDevBufMask2, CL_TRUE, 0, szBuffBytes, (void*)mask, 0, NULL, NULL);
-    CheckError(GPUError);
-}
 
 
 
@@ -119,8 +89,7 @@ void GPUTransferManager::Cleanup()
     //cout << "\nStarting Cleanup...\n\n";
 
     if(cmDevBuf)clReleaseMemObject(cmDevBuf);
-	if(cmDevBufMask1)clReleaseMemObject(cmDevBufMask1);
-	if(cmDevBufMask2)clReleaseMemObject(cmDevBufMask2);
+	
 }
 
 IplImage* GPUTransferManager::GetImageFromGPU()

@@ -1,3 +1,12 @@
+/*!
+ * \file GPUImageProcessor.h
+ * \brief Class responsible for managing image processing.
+ *
+ * \author Mateusz Pruchniak
+ * \date 2010-06-05
+ */
+
+
 #pragma once
 #include <oclUtils.h>
 #include <iostream>
@@ -14,40 +23,101 @@
 
 using namespace std;
 
-
+/*!
+ * \class GPUImageProcessor
+ * \brief Class responsible for managing image processing.
+ * \author Mateusz Pruchniak
+ * \date 2010-06-05
+ */
 class GPUImageProcessor
 {
     private:
         
-        unsigned int ImageWidth;        // image width
-        unsigned int ImageHeight;       // image height
-        cl_device_id* GPUDevices;       // id_device
-        cl_uint GPUNumberDevices;       // number of device
+        /*!
+		 * Image width.
+		 */
+        unsigned int ImageWidth;   
+
+		/*!
+		 * Image height.
+		 */
+        unsigned int ImageHeight;  
+
+		/*!
+		 * Device id.
+		 */
+        cl_device_id* GPUDevices;      
+
+		/*!
+		 * Number of device.
+		 */
+        cl_uint GPUNumberDevices;      
+
+		/*!
+		 * Number of device.
+		 */
         cl_int GPUError;	
-		cl_platform_id cpPlatform;      // OpenCL platform
-		cl_device_id* cdDevices;		// OpenCL device list
-		cl_uint uiDevCount;				// total # of devices available to the platform
 
+		/*!
+		 * OpenCL platform.
+		 */
+		cl_platform_id cpPlatform;      
 
-        vector<Filter*> filters;        // list od filters
+		/*!
+		 * OpenCL device list.
+		 */
+		cl_device_id* cdDevices;	
+
+		/*!
+		 * Total number of devices available to the platform.
+		 */
+		cl_uint uiDevCount;			
+
+		/*!
+		 * List of filters.
+		 */
+        vector<Filter*> filters;        
     
     public:
 
-        cl_context GPUContext;                  // OpenCL context of device to use. 
-        cl_command_queue GPUCommandQueue;       // command-queue for specific device.
+		/*!
+		 * Command-queue for specific device.
+		 */
+        cl_command_queue GPUCommandQueue; 
+
+		/*!
+		 * OpenCL context of device to use.
+		 */
+        cl_context GPUContext;    
+
+		/*!
+		 * Pointer to instance of class GPUTransferManager.
+		 */
 		GPUTransferManager* Transfer;
 
+		/*!
+		 * List of filters.
+		 */
         GPUImageProcessor(int width,int height,int nChannels);
 
-        // start processing
+		/*!
+		 * Start image processing.
+		 */
         void process();
 
-        // add additional filters
+		/*!
+		 * Add additional filters.
+		 */
         void addFilter(Filter* filter);
         
-        // 
+        /*!
+		 * Check error code.
+		 */
         void CheckError(int code);
 
+		 /*!
+		 * Destructor.
+		 */
         ~GPUImageProcessor();
 };
 

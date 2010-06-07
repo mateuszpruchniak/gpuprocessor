@@ -37,6 +37,9 @@ PrewittFilter::PrewittFilter(cl_context GPUContext ,GPUTransferManager* transfer
 	maskV[6] = 1;
 	maskV[7] = 1;
 	maskV[8] = 1;
+
+	LoadMask(&cmDevBufMaskH,maskH,9,transfer);
+	LoadMask(&cmDevBufMaskV,maskV,9,transfer);
 }
 
 

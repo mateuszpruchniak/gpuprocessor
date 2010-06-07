@@ -41,6 +41,9 @@ LaplaceFilter::LaplaceFilter(cl_context GPUContext ,GPUTransferManager* transfer
 	maskH[6] = 0;
 	maskH[7] = 0;
 	maskH[8] = 0;
+
+	LoadMask(&cmDevBufMaskH,maskH,9,transfer);
+	LoadMask(&cmDevBufMaskV,maskV,9,transfer);
 }
 
 bool LaplaceFilter::filter(cl_command_queue GPUCommandQueue)
