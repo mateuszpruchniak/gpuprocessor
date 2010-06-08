@@ -16,7 +16,6 @@ __kernel void ckLUT(__global uchar* ucSource, __global int* LUT,
 		input.x = LUT[input.x];
 		input.y = LUT[input.y];
 		input.z = LUT[input.z];
-
 		
 
 		// Write out to GMEM with restored offset
