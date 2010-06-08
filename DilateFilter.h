@@ -32,8 +32,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	DilateFilter(cl_context GPUContext ,GPUTransferManager* transfer): MorphologyFilter("./OpenCL/DilateFilter.cl",GPUContext,transfer,"ckDilate")
-	{}
+	DilateFilter(cl_context GPUContext ,GPUTransferManager* transfer);
 
 	/*!
 	* Start filtering.

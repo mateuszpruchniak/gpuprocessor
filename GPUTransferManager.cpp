@@ -92,7 +92,7 @@ void GPUTransferManager::Cleanup()
 	
 }
 
-IplImage* GPUTransferManager::GetImageFromGPU()
+IplImage* GPUTransferManager::ReceiveImage()
 {
 	szBuffBytes = ImageWidth * ImageHeight * nChannels * sizeof (char);
     GPUError = clEnqueueReadBuffer(GPUCommandQueue, cmDevBuf, CL_TRUE, 0, szBuffBytes, (void*)GPUInputOutput, 0, NULL, NULL);
@@ -103,7 +103,7 @@ IplImage* GPUTransferManager::GetImageFromGPU()
     return image;
 }
 
-void GPUTransferManager::LoadImageToGPU( IplImage* imageToLoad )
+void GPUTransferManager::SendImage( IplImage* imageToLoad )
 {
 	ImageHeight = imageToLoad->height;
     ImageWidth = imageToLoad->width;

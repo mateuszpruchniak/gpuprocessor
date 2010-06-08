@@ -32,8 +32,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	MedianFilter(cl_context GPUContext ,GPUTransferManager* transfer): NonLinearFilter("./OpenCL/MedianFilter.cl",GPUContext,transfer,"ckMedian")
-	{}
+	MedianFilter(cl_context GPUContext ,GPUTransferManager* transfer);
 
 	/*!
 	* Start filtering.

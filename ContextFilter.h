@@ -33,9 +33,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	ContextFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): Filter(source,GPUContext,transfer,KernelName)
-    {
-    }
+	ContextFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
 	/*!
 	* Start filtering.

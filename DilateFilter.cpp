@@ -18,6 +18,12 @@ DilateFilter::~DilateFilter(void)
 	//cout << "~DilateFilter" << endl;
 }
 
+
+DilateFilter::DilateFilter(cl_context GPUContext ,GPUTransferManager* transfer): MorphologyFilter("./OpenCL/DilateFilter.cl",GPUContext,transfer,"ckDilate")
+{
+
+}
+
 bool DilateFilter::filter(cl_command_queue GPUCommandQueue)
 {
     int iLocalPixPitch = iBlockDimX + 2;

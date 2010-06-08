@@ -32,10 +32,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	ContextFreeFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): Filter(source,GPUContext,transfer,KernelName)
-    {
-    }
-
+	ContextFreeFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
 	/*!
 	* Start filtering.

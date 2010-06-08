@@ -32,8 +32,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	RGB2HSV(cl_context GPUContext ,GPUTransferManager* transfer): Transformation("./OpenCL/RGB2HSV.cl",GPUContext,transfer,"ckRGB2HSV")
-	{}
+	RGB2HSV(cl_context GPUContext ,GPUTransferManager* transfer);
 
 	/*!
 	* Start filtering.

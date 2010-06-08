@@ -1,10 +1,94 @@
-﻿Build started 6/8/2010 12:30:08 AM.
+﻿Build started 6/8/2010 1:09:13 PM.
      1>Project "C:\NVIDIA GPU Computing SDK\OpenCL\src\GPUProcessor\oclSobel.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\GPUProcessor.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../../common/inc/ /I../../../shared/inc/ /IC:\OpenCV2.0\include\opencv /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GPUImageProcessor.cpp main.cpp
-         GPUImageProcessor.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../../common/inc/ /I../../../shared/inc/ /IC:\OpenCV2.0\include\opencv /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt CloseFilter.cpp CornerDetectionFilter.cpp DilateFilter.cpp ErodeFilter.cpp MaxFilter.cpp MedianFilter.cpp MinFilter.cpp MorphologyFilter.cpp NonLinearFilter.cpp OpenFilter.cpp RGB2HSV.cpp Transformation.cpp main.cpp
+         Transformation.cpp
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including rendercheckGL.h
+         Note: including <vector>
+         Note: including <map>
+         Note: including <string>
+         Note: including GL/glew.h
+         Note: including GL/glut.h
+         Note: including lib: glut32.lib
+         
+         Note: including shrUtils.h
+         Note: including opencl.h
+         RGB2HSV.cpp
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including rendercheckGL.h
+         Note: including <vector>
+         Note: including <map>
+         Note: including <string>
+         Note: including GL/glew.h
+         Note: including GL/glut.h
+         Note: including lib: glut32.lib
+         
+         Note: including shrUtils.h
+         Note: including opencl.h
+         NonLinearFilter.cpp
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including rendercheckGL.h
+         Note: including <vector>
+         Note: including <map>
+         Note: including <string>
+         Note: including GL/glew.h
+         Note: including GL/glut.h
+         Note: including lib: glut32.lib
+         
+         Note: including shrUtils.h
+         Note: including opencl.h
+         MorphologyFilter.cpp
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including rendercheckGL.h
+         Note: including <vector>
+         Note: including <map>
+         Note: including <string>
+         Note: including GL/glew.h
+         Note: including GL/glut.h
+         Note: including lib: glut32.lib
+         
+         Note: including shrUtils.h
+         Note: including opencl.h
+         MinFilter.cpp
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including rendercheckGL.h
+         Note: including <vector>
+         Note: including <map>
+         Note: including <string>
+         Note: including GL/glew.h
+         Note: including GL/glut.h
+         Note: including lib: glut32.lib
+         
+         Note: including shrUtils.h
+         Note: including opencl.h
+         MedianFilter.cpp
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including rendercheckGL.h
+         Note: including <vector>
+         Note: including <map>
+         Note: including <string>
+         Note: including GL/glew.h
+         Note: including GL/glut.h
+         Note: including lib: glut32.lib
+         
+         Note: including shrUtils.h
+         Note: including opencl.h
+         CornerDetectionFilter.cpp
          Note: including windows.h
          Note: including math.h
          Note: including assert.h
@@ -21,6 +105,76 @@
          Generating Code...
          Compiling...
          main.cpp
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including rendercheckGL.h
+         Note: including <vector>
+         Note: including <map>
+         Note: including <string>
+         Note: including GL/glew.h
+         Note: including GL/glut.h
+         Note: including lib: glut32.lib
+         
+         Note: including shrUtils.h
+         Note: including opencl.h
+         OpenFilter.cpp
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including rendercheckGL.h
+         Note: including <vector>
+         Note: including <map>
+         Note: including <string>
+         Note: including GL/glew.h
+         Note: including GL/glut.h
+         Note: including lib: glut32.lib
+         
+         Note: including shrUtils.h
+         Note: including opencl.h
+         MaxFilter.cpp
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including rendercheckGL.h
+         Note: including <vector>
+         Note: including <map>
+         Note: including <string>
+         Note: including GL/glew.h
+         Note: including GL/glut.h
+         Note: including lib: glut32.lib
+         
+         Note: including shrUtils.h
+         Note: including opencl.h
+         ErodeFilter.cpp
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including rendercheckGL.h
+         Note: including <vector>
+         Note: including <map>
+         Note: including <string>
+         Note: including GL/glew.h
+         Note: including GL/glut.h
+         Note: including lib: glut32.lib
+         
+         Note: including shrUtils.h
+         Note: including opencl.h
+         DilateFilter.cpp
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including rendercheckGL.h
+         Note: including <vector>
+         Note: including <map>
+         Note: including <string>
+         Note: including GL/glew.h
+         Note: including GL/glut.h
+         Note: including lib: glut32.lib
+         
+         Note: including shrUtils.h
+         Note: including opencl.h
+         CloseFilter.cpp
          Note: including windows.h
          Note: including math.h
          Note: including assert.h
@@ -82,4 +236,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.01
+Time Elapsed 00:00:14.11

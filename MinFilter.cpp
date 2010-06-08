@@ -17,6 +17,11 @@ MinFilter::~MinFilter(void)
 {
 }
 
+MinFilter::MinFilter(cl_context GPUContext ,GPUTransferManager* transfer): NonLinearFilter("./OpenCL/MinFilter.cl",GPUContext,transfer,"ckMin")
+{
+
+}
+
 bool MinFilter::filter(cl_command_queue GPUCommandQueue)
 {
  

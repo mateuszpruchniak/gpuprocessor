@@ -18,6 +18,10 @@ ErodeFilter::~ErodeFilter(void)
 	//cout << "~ErodeFilter" << endl;
 }
 
+ErodeFilter::ErodeFilter(cl_context GPUContext ,GPUTransferManager* transfer): MorphologyFilter("./OpenCl/ErodeFilter.cl",GPUContext,transfer,"ckErode")
+{
+
+}
 
 bool ErodeFilter::filter(cl_command_queue GPUCommandQueue)
 {

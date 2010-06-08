@@ -32,8 +32,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	ErodeFilter(cl_context GPUContext ,GPUTransferManager* transfer): MorphologyFilter("./OpenCl/ErodeFilter.cl",GPUContext,transfer,"ckErode")
-	{}
+	ErodeFilter(cl_context GPUContext ,GPUTransferManager* transfer);
 
 	/*!
 	* Start filtering.

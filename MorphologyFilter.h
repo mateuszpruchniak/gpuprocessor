@@ -32,9 +32,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	MorphologyFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): ContextFilter(source,GPUContext,transfer,KernelName)
-    {
-    }
+	MorphologyFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
 
 	/*!

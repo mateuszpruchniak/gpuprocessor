@@ -42,6 +42,9 @@ CornerDetectionFilter::CornerDetectionFilter(cl_context GPUContext ,GPUTransferM
 	maskH[6] = 0;
 	maskH[7] = 0;
 	maskH[8] = 0;
+
+	LoadMask(&cmDevBufMaskH,maskH,9,transfer);
+	LoadMask(&cmDevBufMaskV,maskV,9,transfer);
 }
 
 bool CornerDetectionFilter::filter(cl_command_queue GPUCommandQueue)

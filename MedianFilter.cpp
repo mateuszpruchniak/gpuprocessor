@@ -17,6 +17,11 @@ MedianFilter::~MedianFilter(void)
 {
 }
 
+MedianFilter::MedianFilter(cl_context GPUContext ,GPUTransferManager* transfer): NonLinearFilter("./OpenCL/MedianFilter.cl",GPUContext,transfer,"ckMedian")
+{
+
+}
+
 bool MedianFilter::filter(cl_command_queue GPUCommandQueue)
 {
  

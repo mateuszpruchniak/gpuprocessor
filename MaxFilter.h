@@ -32,8 +32,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	MaxFilter(cl_context GPUContext ,GPUTransferManager* transfer): NonLinearFilter("./OpenCL/MaxFilter.cl",GPUContext,transfer,"ckMax")
-	{}
+	MaxFilter(cl_context GPUContext ,GPUTransferManager* transfer);
 
 	/*!
 	* Start filtering.

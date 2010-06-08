@@ -17,6 +17,11 @@ MaxFilter::~MaxFilter(void)
 {
 }
 
+MaxFilter::MaxFilter(cl_context GPUContext ,GPUTransferManager* transfer): NonLinearFilter("./OpenCL/MaxFilter.cl",GPUContext,transfer,"ckMax")
+{
+
+}
+
 bool MaxFilter::filter(cl_command_queue GPUCommandQueue)
 {
  

@@ -44,8 +44,6 @@ class GPUTransferManager
 		 */
         cl_mem cmPinnedBuf;               
 
-		
-
 		/*!
 		 * The size in bytes of the buffer memory object to be allocated.
 		 */
@@ -110,14 +108,14 @@ class GPUTransferManager
         GPUTransferManager();
 
         /*!
-		 * Load image to buffers.
+		 * Send image to buffers.
 		 */
-        void LoadImageToGPU( IplImage*  );
+        void SendImage( IplImage*  );
 
         /*!
 		 * Get image from buffers.
 		 */
-        IplImage* GetImageFromGPU();
+        IplImage* ReceiveImage();
         
         
 		/*!

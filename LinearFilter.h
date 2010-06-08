@@ -33,8 +33,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	LinearFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): ContextFilter(source,GPUContext,transfer,KernelName)
-	{}
+	LinearFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
 	/*!
 	* Start filtering.

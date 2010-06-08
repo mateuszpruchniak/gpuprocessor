@@ -32,8 +32,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	MinFilter(cl_context GPUContext ,GPUTransferManager* transfer): NonLinearFilter("./OpenCL/MinFilter.cl",GPUContext,transfer,"ckMin")
-	{}
+	MinFilter(cl_context GPUContext ,GPUTransferManager* transfer);
 
 	/*!
 	* Start filtering.

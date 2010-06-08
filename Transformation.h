@@ -32,9 +32,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	Transformation(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): Filter(source,GPUContext,transfer,KernelName)
-    {
-    }
+	Transformation(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
 	/*!
 	* Start filtering.

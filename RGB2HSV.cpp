@@ -17,7 +17,10 @@ RGB2HSV::~RGB2HSV(void)
 {
 }
 
+RGB2HSV::RGB2HSV(cl_context GPUContext ,GPUTransferManager* transfer): Transformation("./OpenCL/RGB2HSV.cl",GPUContext,transfer,"ckRGB2HSV")
+{
 
+}
 
 bool RGB2HSV::filter(cl_command_queue GPUCommandQueue)
 {

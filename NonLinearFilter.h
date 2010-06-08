@@ -32,9 +32,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	NonLinearFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): ContextFilter(source,GPUContext,transfer,KernelName)
-    {
-    }
+	NonLinearFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
 	/*!
 	* Start filtering.

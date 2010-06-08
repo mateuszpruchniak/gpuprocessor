@@ -103,12 +103,12 @@ class GPUImageProcessor
 		/*!
 		 * Start image processing.
 		 */
-        void process();
+        void Process();
 
 		/*!
 		 * Add additional filters.
 		 */
-        void addFilter(Filter* filter);
+        void AddProcessing(Filter* filter);
         
         /*!
 		 * Check error code.

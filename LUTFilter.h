@@ -49,11 +49,7 @@ public:
 	/*!
 	* Constructor.
 	*/
-	LUTFilter(cl_context GPUContext ,GPUTransferManager* transfer, int* LUTArray): ContextFreeFilter("./OpenCL/LUTFilter.cl",GPUContext,transfer,"ckLUT")
-	{
-		lut = LUTArray;
-		LoadLookUpTable(lut , 256, transfer);
-	}
+	LUTFilter(cl_context GPUContext ,GPUTransferManager* transfer, int* LUTArray);
 
 	/*!
 	* Start filtering.
