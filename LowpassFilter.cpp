@@ -8,12 +8,6 @@
 
 #include "LowpassFilter.h"
 
-
-LowpassFilter::LowpassFilter(void)
-{
-}
-
-
 LowpassFilter::~LowpassFilter(void)
 {
 	if(cmDevBufMask)clReleaseMemObject(cmDevBufMask);

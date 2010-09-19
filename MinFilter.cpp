@@ -7,12 +7,6 @@
 
 #include "MinFilter.h"
 
-
-MinFilter::MinFilter(void)
-{
-}
-
-
 MinFilter::~MinFilter(void)
 {
 }

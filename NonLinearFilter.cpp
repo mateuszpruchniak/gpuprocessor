@@ -7,11 +7,10 @@
 
 #include "NonLinearFilter.h"
 
-
 NonLinearFilter::NonLinearFilter(void)
 {
-}
 
+}
 
 NonLinearFilter::~NonLinearFilter(void)
 {
@@ -19,10 +18,4 @@ NonLinearFilter::~NonLinearFilter(void)
 
 NonLinearFilter::NonLinearFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): ContextFilter(source,GPUContext,transfer,KernelName)
 {
-}
-
-
-bool NonLinearFilter::filter(cl_command_queue GPUCommandQueue)
-{
-	return false;
 }

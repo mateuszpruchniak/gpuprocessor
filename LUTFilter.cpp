@@ -8,11 +8,6 @@
 #include "LUTFilter.h"
 
 
-LUTFilter::LUTFilter(void)
-{
-}
-
-
 LUTFilter::~LUTFilter(void)
 {
 	if(cmDevBufLUT)clReleaseMemObject(cmDevBufLUT);

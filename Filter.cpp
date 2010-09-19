@@ -10,8 +10,7 @@
 
 Filter::Filter(void)
 {
-	GPUFilter = NULL;
-	GPUProgram= NULL;
+
 }
 
 Filter::Filter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName)

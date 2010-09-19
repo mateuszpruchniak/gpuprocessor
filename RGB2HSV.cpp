@@ -7,12 +7,6 @@
 
 #include "RGB2HSV.h"
 
-
-RGB2HSV::RGB2HSV(void)
-{
-}
-
-
 RGB2HSV::~RGB2HSV(void)
 {
 }

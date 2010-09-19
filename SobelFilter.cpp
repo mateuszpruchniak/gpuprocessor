@@ -7,11 +7,6 @@
 
 #include "SobelFilter.h"
 
-
-SobelFilter::SobelFilter(void)
-{
-}
-
 SobelFilter::SobelFilter(cl_context GPUContext ,GPUTransferManager* transfer): HighpassFilter("./OpenCL/HighpassFilter.cl",GPUContext,transfer,"ckGradient")
 {
 	maskH = new int[9];
@@ -44,9 +39,4 @@ SobelFilter::SobelFilter(cl_context GPUContext ,GPUTransferManager* transfer): H
 
 SobelFilter::~SobelFilter(void)
 {
-}
-
-bool SobelFilter::filter(cl_command_queue GPUCommandQueue)
-{
-	return HighpassFilter::filter(GPUCommandQueue);
 }

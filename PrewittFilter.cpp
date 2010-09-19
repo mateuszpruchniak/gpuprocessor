@@ -1,5 +1,5 @@
 /*!
- * \file highpassfilter.cpp
+ * \file PrewittFilter.cpp
  * \brief Prewitt filter, edge detection algorithm.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
@@ -7,11 +7,6 @@
 
 
 #include "PrewittFilter.h"
-
-
-PrewittFilter::PrewittFilter(void)
-{
-}
 
 PrewittFilter::PrewittFilter(cl_context GPUContext ,GPUTransferManager* transfer): HighpassFilter("./OpenCL/HighpassFilter.cl",GPUContext,transfer,"ckGradient")
 {
@@ -46,9 +41,4 @@ PrewittFilter::PrewittFilter(cl_context GPUContext ,GPUTransferManager* transfer
 
 PrewittFilter::~PrewittFilter(void)
 {
-}
-
-bool PrewittFilter::filter(cl_command_queue GPUCommandQueue)
-{
-	return HighpassFilter::filter(GPUCommandQueue);
 }

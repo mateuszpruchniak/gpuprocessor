@@ -30,8 +30,6 @@ GPUImageProcessor::GPUImageProcessor(int width,int height,int nChannels)
     GPUError = clGetDeviceIDs(cpPlatform, CL_DEVICE_TYPE_GPU, uiDevCount, cdDevices, NULL);
     CheckError(GPUError);
 
-    
-    
     // Create the OpenCL context on a GPU device
     GPUContext = clCreateContext(0, uiNumAllDevs, cdDevices, NULL, NULL, &GPUError);
     CheckError(GPUError);

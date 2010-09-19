@@ -8,11 +8,6 @@
 #include "CornerDetectionFilter.h"
 
 
-CornerDetectionFilter::CornerDetectionFilter(void)
-{
-}
-
-
 CornerDetectionFilter::~CornerDetectionFilter(void)
 {
 }
@@ -47,7 +42,3 @@ CornerDetectionFilter::CornerDetectionFilter(cl_context GPUContext ,GPUTransferM
 	LoadMask(&cmDevBufMaskV,maskV,9,transfer);
 }
 
-bool CornerDetectionFilter::filter(cl_command_queue GPUCommandQueue)
-{
-	return HighpassFilter::filter(GPUCommandQueue);
-}

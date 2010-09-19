@@ -8,11 +8,6 @@
 #include "LaplaceFilter.h"
 
 
-LaplaceFilter::LaplaceFilter(void)
-{
-}
-
-
 LaplaceFilter::~LaplaceFilter(void)
 {
 }
@@ -44,9 +39,4 @@ LaplaceFilter::LaplaceFilter(cl_context GPUContext ,GPUTransferManager* transfer
 
 	LoadMask(&cmDevBufMaskH,maskH,9,transfer);
 	LoadMask(&cmDevBufMaskV,maskV,9,transfer);
-}
-
-bool LaplaceFilter::filter(cl_command_queue GPUCommandQueue)
-{
-	return HighpassFilter::filter(GPUCommandQueue);
 }

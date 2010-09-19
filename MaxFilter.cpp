@@ -8,11 +8,6 @@
 #include "MaxFilter.h"
 
 
-MaxFilter::MaxFilter(void)
-{
-}
-
-
 MaxFilter::~MaxFilter(void)
 {
 }

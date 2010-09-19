@@ -1,5 +1,5 @@
 /*!
- * \file highpassfilter.cpp
+ * \file RobertsFilter.cpp
  * \brief Roberts filter, edge detection algorithm.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
@@ -7,11 +7,6 @@
 
 
 #include "RobertsFilter.h"
-
-
-RobertsFilter::RobertsFilter(void)
-{
-}
 
 
 RobertsFilter::~RobertsFilter(void)
@@ -45,10 +40,4 @@ RobertsFilter::RobertsFilter(cl_context GPUContext ,GPUTransferManager* transfer
 
 	LoadMask(&cmDevBufMaskH,maskH,9,transfer);
 	LoadMask(&cmDevBufMaskV,maskV,9,transfer);
-}
-
-
-bool RobertsFilter::filter(cl_command_queue GPUCommandQueue)
-{
-	return HighpassFilter::filter(GPUCommandQueue);
 }

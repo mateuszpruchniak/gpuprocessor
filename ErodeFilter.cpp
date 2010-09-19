@@ -8,11 +8,6 @@
 #include "ErodeFilter.h"
 
 
-ErodeFilter::ErodeFilter(void)
-{
-}
-
-
 ErodeFilter::~ErodeFilter(void)
 {
 	//cout << "~ErodeFilter" << endl;

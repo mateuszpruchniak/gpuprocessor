@@ -7,11 +7,6 @@
 #include "OpenFilter.h"
 
 
-OpenFilter::OpenFilter(void)
-{
-}
-
-
 OpenFilter::~OpenFilter(void)
 {
 	//cout << "~OpenFilter" << endl;

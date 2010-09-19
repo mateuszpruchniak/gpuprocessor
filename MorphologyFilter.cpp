@@ -11,13 +11,7 @@ MorphologyFilter::~MorphologyFilter(void)
 {
 }
 
-MorphologyFilter::MorphologyFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): ContextFilter(source,GPUContext,transfer,KernelName)
+MorphologyFilter::MorphologyFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): NonLinearFilter(source,GPUContext,transfer,KernelName)
 {
 
-}
-
-
-bool MorphologyFilter::filter(cl_command_queue GPUCommandQueue)
-{
-	return false;
 }

@@ -17,8 +17,7 @@ ContextFilter::ContextFilter(char* source, cl_context GPUContext ,GPUTransferMan
 
 }
 
-
-bool ContextFilter::filter(cl_command_queue GPUCommandQueue)
+ContextFilter::ContextFilter()
 {
-	return false;
+
 }

@@ -7,12 +7,6 @@
 
 #include "MedianFilter.h"
 
-
-MedianFilter::MedianFilter(void)
-{
-}
-
-
 MedianFilter::~MedianFilter(void)
 {
 }

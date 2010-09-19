@@ -1,16 +1,11 @@
 /*!
- * \file CloseFilter.h
+ * \file CloseFilter.cpp
  * \brief Close filter, (dilate,erode).
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
 
 #include "CloseFilter.h"
-
-
-CloseFilter::CloseFilter(void)
-{
-}
 
 
 CloseFilter::~CloseFilter(void)

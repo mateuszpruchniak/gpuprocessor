@@ -1,28 +1,17 @@
 /*!
  * \file Transformation.cpp
- * \brief Transformation class.
+ * \brief Color transformation class.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
 
 #include "Transformation.h"
 
-
-Transformation::Transformation(void)
-{
-}
-
-
 Transformation::~Transformation(void)
 {
 }
 
-Transformation::Transformation(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): Filter(source,GPUContext,transfer,KernelName)
+Transformation::Transformation(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): ContextFreeFilter(source,GPUContext,transfer,KernelName)
 {
 
-}
-
-bool Transformation::filter(cl_command_queue GPUCommandQueue)
-{
-	return false;
 }

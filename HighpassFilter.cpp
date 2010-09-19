@@ -8,18 +8,13 @@
 #include "HighpassFilter.h"
 
 
-HighpassFilter::HighpassFilter(void)
-{
-}
-
-
 HighpassFilter::~HighpassFilter(void)
 {
 	if(cmDevBufMaskV)clReleaseMemObject(cmDevBufMaskV);
 	if(cmDevBufMaskH)clReleaseMemObject(cmDevBufMaskH);
 }
 
-HighpassFilter::HighpassFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): LinearFilter(source,GPUContext,transfer,KernelName)
+HighpassFilter::HighpassFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName): NonLinearFilter(source,GPUContext,transfer,KernelName)
 {
 	
 }
