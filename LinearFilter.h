@@ -11,7 +11,7 @@
 
 /*!
  * \class LinearFilter
- * \brief Linear filters.
+ * \brief Linear filters. In linear filters the output pixel value is a result of a linear combination on input pixels below the mask.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
@@ -20,10 +20,6 @@ class LinearFilter :
 {
 public:
 
-	/*!
-	* Constructor.
-	*/
-	LinearFilter(void);
 
 	/*!
 	* Destructor.
@@ -35,9 +31,5 @@ public:
 	*/
 	LinearFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
-	/*!
-	* Start filtering.
-	*/
-	bool filter(cl_command_queue GPUCommandQueue);
 };
 

@@ -1,6 +1,6 @@
 /*!
  * \file CloseFilter.h
- * \brief Close filter, (dilate,erode).
+ * \brief File contains class Close filter, (dilate,erode).
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
@@ -12,7 +12,7 @@
 
 /*!
  * \class CloseFilter
- * \brief Close filter, (dilate,erode).
+ * \brief Close filter, (dilate,erode) is the submission of dilation and erosion.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
@@ -21,21 +21,21 @@ class CloseFilter :
 {
 private:
 	/*!
-	* Pointer to DilateFilter.
+	* Pointer to instance of class DilateFilter.
 	*/
 	DilateFilter* dilate;
 
 	/*!
-	* Pointer to ErodeFilter.
+	* Pointer to instance of class ErodeFilter.
 	*/
 	ErodeFilter* erode;
 
 public:
 
 	/*!
-	* Constructor.
+	* Constructor. Create ErodeFilter and DilateFilter instances.
 	*/
-	CloseFilter(void);
+	CloseFilter(cl_context GPUContext ,GPUTransferManager* transfer);
 
 	/*!
 	* Destructor.
@@ -43,12 +43,7 @@ public:
 	~CloseFilter(void);
 
 	/*!
-	* Constructor.
-	*/
-	CloseFilter(cl_context GPUContext ,GPUTransferManager* transfer);
-
-	/*!
-	* Start filtering.
+	* Start dilate filtering, and erode filtering. Launching GPU processing.
 	*/
 	bool filter(cl_command_queue GPUCommandQueue);
 };

@@ -44,7 +44,7 @@ class Filter
         int iBlockDimY;                    
 
 		/*!
-		 * Error code.
+		 * Error code, only 0 is allowed.
 		 */
         cl_int GPUError;
 
@@ -64,12 +64,12 @@ class Filter
 		char* SourceOpenCL;              
 
 		/*!
-		 * Program object.
+		 * Program is formed by a set of kernels, functions and declarations, and it's represented by an cl_program object.
 		 */
         cl_program GPUProgram;              
 
 		/*!
-		 * Filter kernel.
+		 * Kernels are essentially functions that we can call from the host and that will run on the device
 		 */
         cl_kernel GPUFilter;               
 
@@ -81,8 +81,8 @@ class Filter
     public:
 
 		/*!
-		 * Default constructor.
-		 */
+		* Default constructor. Nothing doing.
+		*/
 		Filter(void);
 
 		/*!
@@ -96,7 +96,7 @@ class Filter
         virtual ~Filter();
 
 		/*!
-		 * Virtual methods, processing image.
+		 * Virtual methods, processing image. Launching the Kernel.
 		 */
 		virtual bool filter(cl_command_queue GPUCommandQueue) = 0;
         

@@ -20,23 +20,14 @@ class CornerDetectionFilter :
 public:
 
 	/*!
-	* Constructor.
-	*/
-	CornerDetectionFilter(void);
-
-	/*!
 	* Destructor.
 	*/
 	~CornerDetectionFilter(void);
 
 	/*!
-	* Constructor.
+	* Constructor. Send mask to GPU memory. Creates a program object for a context, loads the source code (.cl files) and build the program.
 	*/
 	CornerDetectionFilter(cl_context GPUContext ,GPUTransferManager* transfer);
 
-	/*!
-	* Start filtering.
-	*/
-	bool filter(cl_command_queue GPUCommandQueue);
 };
 

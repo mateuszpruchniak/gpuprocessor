@@ -45,20 +45,14 @@ __kernel void ckRGB2HSV(__global uchar4* ucSource,
 		if( h < 0 )
 			h += 360;
 
-		pix.z = (char)1;//h;
-		pix.y = (char)200;//s;
-		pix.x = (char)1;//v;
+		pix.z = (char)h;
+		pix.y = (char)s;
+		pix.x = (char)v;
 
-		 Write out to GMEM with restored offset
+		 //Write out to GMEM with restored offset
 	    if((iDevYPrime < uiDevImageHeight) && (iImagePosX < uiImageWidth))
 	    {
 		     setData(ucSource,pix.x ,pix.y, pix.z, iDevGMEMOffset );
 	    }
 
-		// Write out to GMEM with restored offset
-	    if((iDevYPrime < uiDevImageHeight) && (iImagePosX < uiImageWidth))
-	    {
-		    //setData(ucSource,(char)res[0] ,(char)res[1], (char)res[2], iDevGMEMOffset );
-			setData(ucSource,(char)1 ,(char)100, (char)1, iDevGMEMOffset );
-	    }
 }

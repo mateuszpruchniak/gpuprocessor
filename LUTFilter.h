@@ -10,7 +10,7 @@
 
 /*!
  * \class LUTFilter
- * \brief Lookup table filter.
+ * \brief Color classification, this operation based on Look-Up-Tables.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
@@ -36,10 +36,6 @@ private:
 
 public:
 
-	/*!
-	* Constructor.
-	*/
-	LUTFilter(void);
 
 	/*!
 	* Destructor.
@@ -47,16 +43,14 @@ public:
 	~LUTFilter(void);
 
 	/*!
-	* Constructor.
+	* Constructor, creates a program object for a context, loads the source code (.cl files) and build the program.
 	*/
 	LUTFilter(cl_context GPUContext ,GPUTransferManager* transfer, int* LUTArray);
 
 	/*!
-	* Start filtering.
+	* Start filtering. Launching GPU processing.
 	*/
 	bool filter(cl_command_queue GPUCommandQueue);
 
-
-	
 };
 

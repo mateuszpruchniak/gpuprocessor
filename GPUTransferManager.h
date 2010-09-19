@@ -1,6 +1,6 @@
 /*!
  * \file GPUTransferManager.h
- * \brief Class responsible for managing transfer to GPU.
+ * \brief File contains class responsible for managing transfer to GPU.
  *
  * \author Mateusz Pruchniak
  * \date 2010-05-05
@@ -24,7 +24,7 @@ using namespace std;
 
 /*!
  * \class GPUTransferManager
- * \brief Class responsible for managing transfer to GPU.
+ * \brief Class responsible for managing transfer between GPU and CPU.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
@@ -50,12 +50,12 @@ class GPUTransferManager
         size_t szBuffBytes;                
 
 		/*!
-		 * Error code.
+		 * Error code, only 0 is allowed.
 		 */
         cl_int GPUError;
 
 		/*!
-		 * Image to load or return from buffer.
+		 * Image return from buffer.
 		 */
         IplImage* image;                   
 		
@@ -63,17 +63,17 @@ class GPUTransferManager
     public:
 
 		/*!
-		 * Command-queue for specific device.
-		 */
+		 * OpenCL command-queue, is an object where OpenCL commands are enqueued to be executed by the device.
+		*/
         cl_command_queue GPUCommandQueue; 
 
 		/*!
-		 * OpenCL context of device to use.
+		 * Context defines the entire OpenCL environment, including OpenCL kernels, devices, memory management, command-queues, etc. Contexts in OpenCL are referenced by an cl_context object
 		 */
         cl_context GPUContext;    
 
 		/*!
-		 * OpenCL device memory input/output buffer object  
+		 * OpenCL device memory input/output buffer object.
 		 */
         cl_mem cmDevBuf;                 
 
@@ -93,12 +93,12 @@ class GPUTransferManager
 		int nChannels;
 
 		/*!
-		 * Destructor.
+		 * Destructor. Release buffers.
 		 */
         ~GPUTransferManager();
 
         /*!
-		 * Constructor, create buffers.
+		 * Constructor. Allocate pinned and mapped memory for input and output host image buffers.
 		 */
         GPUTransferManager( cl_context , cl_command_queue , unsigned int , unsigned int,  int nChannels );
 
@@ -108,12 +108,12 @@ class GPUTransferManager
         GPUTransferManager();
 
         /*!
-		 * Send image to buffers.
+		 * Send image to GPU memory.
 		 */
         void SendImage( IplImage*  );
 
         /*!
-		 * Get image from buffers.
+		 * Get image from GPU memory.
 		 */
         IplImage* ReceiveImage();
         

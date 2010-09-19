@@ -1,6 +1,6 @@
 /*!
  * \file ContextFreeFilter.h
- * \brief No contex filter.
+ * \brief File caontains contex free filter.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
@@ -10,7 +10,7 @@
 
 /*!
  * \class ContextFreeFilter
- * \brief No contex filter.
+ * \brief Context free transformations process given input image pixel into output image pixel independetly of its neighbors.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
@@ -18,11 +18,6 @@ class ContextFreeFilter :
 	public Filter
 {
 public:
-
-	/*!
-	* Constructor.
-	*/
-	ContextFreeFilter(void);
 
 	/*!
 	* Destructor.
@@ -34,9 +29,5 @@ public:
 	*/
 	ContextFreeFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
-	/*!
-	* Start filtering.
-	*/
-	bool filter(cl_command_queue GPUCommandQueue);
 };
 

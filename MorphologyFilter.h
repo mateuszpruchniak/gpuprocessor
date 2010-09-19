@@ -1,25 +1,25 @@
 /*!
  * \file MorphologyFilter.h
- * \brief Morphology filters.
+ * \brief Filter contains class morphology filters.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
 
 #pragma once
-#include "contextfilter.h"
+#include "nonlinearfilter.h"
 
 /*!
  * \class MorphologyFilter
- * \brief Morphology filters.
+ * \brief Morphology filters. Morhological transformation change the structure or form of an object in the image.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
 class MorphologyFilter :
-	public ContextFilter
+	public NonLinearFilter
 {
 public:
 	/*!
-	* Constructor.
+	* Constructor. Doing nothing!
 	*/
 	MorphologyFilter(void)
 	{}
@@ -30,14 +30,9 @@ public:
 	~MorphologyFilter(void);
 
 	/*!
-	* Constructor.
+	* Constructor. 
 	*/
 	MorphologyFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
-
-	/*!
-	* Start filtering.
-	*/
-	bool filter(cl_command_queue GPUCommandQueue);
 };
 

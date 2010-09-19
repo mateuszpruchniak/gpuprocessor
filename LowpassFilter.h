@@ -10,7 +10,7 @@
 
 /*!
  * \class LowpassFilter
- * \brief Lowpass filters.
+ * \brief Low pass filtering, otherwise known as "smoothing", is employed to remove high spatial frequency noise from a digital image.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
@@ -25,11 +25,6 @@ protected:
 	int* mask;
 
 	/*!
-	* Size of mask. (example mask 3x3, size = 9).
-	*/
-	int maskSize;
-
-	/*!
 	* OpenCL device memory input buffer for mask.
 	*/
 	cl_mem cmDevBufMask;
@@ -42,22 +37,17 @@ protected:
 public:
 
 	/*!
-	* Constructor.
-	*/
-	LowpassFilter(void);
-
-	/*!
 	* Destructor.
 	*/
 	~LowpassFilter(void);
 
 	/*!
-	* Constructor.
+	* Constructor, creates a program object for a context, loads the source code (.cl files) and build the program.
 	*/
 	LowpassFilter(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
 	/*!
-	* Start filtering.
+	* Start filtering. Launching GPU processing.
 	*/
 	bool filter(cl_command_queue GPUCommandQueue);
 

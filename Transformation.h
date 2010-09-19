@@ -1,28 +1,23 @@
 /*!
  * \file Transformation.h
- * \brief Transformation class.
+ * \brief Filte contain color transformation class.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
 
 #pragma once
-#include "filter.h"
+#include "contextfreefilter.h"
 
 /*!
  * \class Transformation
- * \brief Transformation class.
+ * \brief Color transformation class.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
 class Transformation :
-	public Filter
+	public ContextFreeFilter
 {
 public:
-
-	/*!
-	* Default constructor.
-	*/
-	Transformation(void);
 
 	/*!
 	* Destructor.
@@ -30,12 +25,9 @@ public:
 	~Transformation(void);
 
 	/*!
-	* Constructor.
+	* Constructor, creates a program object for a context, loads the source code (.cl files) and build the program.
 	*/
 	Transformation(char* source, cl_context GPUContext ,GPUTransferManager* transfer,char* KernelName);
 
-	/*!
-	* Start filtering.
-	*/
-	bool filter(cl_command_queue GPUCommandQueue);
+	
 };

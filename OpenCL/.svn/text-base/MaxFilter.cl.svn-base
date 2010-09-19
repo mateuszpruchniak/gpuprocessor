@@ -71,15 +71,13 @@ __kernel void ckMax(__global uchar* ucSource,
 	// Row3 Right Pix (RGB)
 	fMiximalEstimate[0] = fMiximalEstimate[0] > GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ? fMiximalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ;					
 	fMiximalEstimate[1] = fMiximalEstimate[1] > GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ? fMiximalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ;						
-	fMiximalEstimate[2] = fMiximalEstimate[2] > GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ? fMiximalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ;					
-
+	fMiximalEstimate[2] = fMiximalEstimate[2] > GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ? fMiximalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ;
 
     uchar4 result;
 	result.x = (char)fMiximalEstimate[0];
 	result.y = (char)fMiximalEstimate[1];
 	result.z = (char)fMiximalEstimate[2];
 
-	// Write out to GMEM with restored offset
 	if((iDevYPrime < uiDevImageHeight) && (iImagePosX < uiImageWidth))
 	{
 		    setData(ucSource,result.x ,result.y, result.z, iDevGMEMOffset );

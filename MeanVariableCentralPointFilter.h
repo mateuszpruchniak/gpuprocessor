@@ -1,6 +1,6 @@
 /*!
- * \file MedianFilter.h
- * \brief Mean filter with variable central point.
+ * \file MeanVariableCentralPointFilter.h
+ * \brief Filte contains class mean filter with variable central point.
  * \author Mateusz Pruchniak
  * \date 2010-05-05
  */
@@ -21,23 +21,14 @@ class MeanVariableCentralPointFilter :
 public:
 
 	/*!
-	* Constructor.
-	*/
-	MeanVariableCentralPointFilter(void);
-
-	/*!
 	* Destructor.
 	*/
 	~MeanVariableCentralPointFilter(void);
 
 	/*!
-	* Constructor.
+	* Constructor, and send mask to GPU memory. Creates a program object for a context, loads the source code (.cl files) and build the program.
 	*/
 	MeanVariableCentralPointFilter(cl_context GPUContext ,GPUTransferManager* transfer,int central);
 
-	/*!
-	* Start filtering.
-	*/
-	bool filter(cl_command_queue GPUCommandQueue);
 };
 
