@@ -1,0 +1,893 @@
+<html xmlns:comem3="xalan://com.em3" xmlns:em3="http://www.em3.com/2002/widget">
+
+
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>NVIDIA OpenCL SDK Code Samples</title>
+	<link type="image/x-icon" href="releaseNotesData/NVSphere.ico" rel="shortcut icon">
+	<script type="text/javascript">
+	<!--
+	function openScreenshot(url)
+	{
+	  var dlgWidth = 556;
+ 	  var dlgHeight = 634;
+	  var dlgLeft = (screen.width - dlgWidth) / 2;
+	  var dlgTop = (screen.height - dlgHeight) / 2;
+
+ 	  var specs = 'toolbar=no,scrollbars=no,location=no,status=no,menubar=no,resizable=no,width=550,height=610,left=' + dlgLeft + ',top=' + dlgTop;
+
+	  newwin = window.open(url, 'ScreenshotWindow', specs);
+	  newwin.focus();
+	}
+	function pageSelectorGoTo()
+	{
+	  window.location = document.forms[1].pageSelector.value
+	}
+	-->
+	</script>
+<style type="text/css">
+body {
+margin-left:0px;
+margin-top:0px;
+font-family:Verdana, Geneva, Arial, Helvetica, Sans Serif;
+font-size: 11px;
+}
+
+td, div { 
+font-family:Verdana, Geneva, Arial, Helvetica, Sans Serif;
+font-size: 11px;
+}
+
+#devTable {
+position:absolute;
+top:0px;
+}
+
+.devGradient {
+vertical-align:top;
+padding:10px;
+
+}
+
+A { 
+text-decoration:none;
+/* color: #008000; */
+/* green color: #76b900; */
+/*font-weight:bold; */
+color: #5B8C00;
+}
+
+A:hover { 
+text-decoration:underline;
+color: #000000;
+}
+
+A:visited { 
+color: #5B8C00;
+}
+
+.bucketText { 
+font-size: 10px;
+}
+A.bucketHeader { 
+font-weight:bold;
+color: #009900;
+text-decoration:none;
+}
+A.bucketHeader:hover { 
+text-decoration:underline;
+}
+A.bucketHeader:visited { 
+color: #005000;
+}
+H1 { 
+font-size:15px;
+color: #000000;
+font-weight:bold;
+}
+H2 { 
+font-size:14px;
+color: #000000;
+font-weight:bold;
+}
+H3 { 
+font-size:14px;
+color: #000080;
+font-weight:bold;
+}
+H4 { 
+font-size:12px;
+color: #000000;
+font-weight:bold;
+}
+H5 { 
+font-size:12px;
+color: #000080;
+font-weight:bold;
+}
+H6 { 
+font-size:10px;
+color: #000000;
+font-weight:bold;
+}
+H6 { 
+font-size:10px;
+color: #000080;
+font-weight:bold;
+}
+
+.search {
+font-size:7pt; 
+color: #FFFFFF;
+} 
+.searchResultsHeader { 
+font-size:10pt;
+font-weight:bold;
+color: #000080;
+}
+.smallText { 
+font-size: 11px;
+}
+.legal{
+font-size:7pt; 
+color: #000000;
+} 
+A.legal{
+text-decoration:none
+color: #000000;
+} 
+A.legal:hover{
+text-decoration:underline
+color: #000000;
+} 
+A.legal:visited{
+color: #000000;
+} 
+
+#mytable 
+{
+BORDER-COLLAPSE: collapse;
+borderColor: #dfdfe7;
+cellSpacing: 0;
+cellPadding: 6;
+borderColorLight: #e9eaed;
+border: 1;
+}
+
+#mytable td {
+FONT-SIZE: 10px; 
+FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, 'Sans Serif';
+borderColor: #dfdfe7;
+background-color: #F4F4F7;
+border-right: 1px solid #dfdfe7;
+border-bottom: 1px solid #dfdfe7;
+padding: 6px 6px 6px 12px; 
+}
+
+#mytable th {
+padding: 6px 6px 6px 12px; 
+FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, 'Sans Serif';
+FONT-WEIGHT: 400; 
+FONT-SIZE: 10px;
+borderColor: #c0c0c0;
+bgColor: #dfdfe7
+}
+.itemName
+{
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+}
+td.verticalBder
+{
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    border-right: 1px solid #aca899
+}
+.anchorImage
+{
+    border: none;
+}
+.itemMinspec
+{
+    border: none;   
+}
+td.itemMinspec
+{
+    padding-top: 0px;
+    padding-left: 5px;
+    padding-bottom: 1px;
+    vertical-align: middle;
+}
+td.screenshot
+{
+    width: 134px;
+    height: 134px;
+    padding-top: 0px;
+    padding-bottom: 3px;
+    padding-left: 0px;
+}
+td.colInfo
+{
+    padding-top: 1px;
+    padding-left: 5px;
+}
+.featuredMonth
+{
+    padding-bottom: 5px;
+    padding-top: 5px;    
+    padding-left: 5px;    
+    background-color: #dfdfe7;
+    color: black;
+    border: solid 1px #d3dae4;
+    font-weight: bold;
+    font-size: 14px;
+}
+.itemGroup
+{
+    font-weight: bold;
+}
+.itemImage
+{
+    border: 2px solid #008000;
+}
+.itemImageNoLink
+{
+    border: 2px solid white;
+}
+.description
+{
+    font-size: 10px;
+}
+.links
+{	
+    font-size: 10px;
+}
+.changeNotification
+{
+    font-size: 9px;
+}
+</style>
+</head>
+
+
+<body>
+<table style="background-color:#ffffff;border-color:#cccccc;border-style:solid;border-top-width:1px;border-left-width:1px;border-right-width:1px;border-bottom-width:1px;" cellspacing="0" cellpadding="0" border="0" width="591" align="center">
+<tr>
+<td valign="top">
+<div style="position:relative;left:13px;top:8px;padding-bottom:20px;width:565px;">
+
+		<!-- 
+		******************
+		      MAIN 
+		******************  
+		-->
+		
+		<h2>NVIDIA OpenCL SDK Code Samples</h2>
+
+
+		<p>The GPU Computing SDK provides examples with source code, utilities, and white papers to help you get started writing GPU Computing software. The full SDK includes dozens of code samples covering a wide range of applications including:<br/>
+		<ul>
+		<li>Simple techniques such as C++ code integration and efficient loading of custom datatypes</li>
+		<li>How-To examples covering CUDA BLAS and FFT libraries, texture fetching in CUDA, and CUDA interoperation with the OpenGL and Direct3D graphics APIS</li>
+		<li>Linear algebra primitives such as matrix transpose and matrix-matrix multiplication </li>
+		<li>Data-parallel algorithms such as parallel prefix sum of large arrays </li>
+		<li>Performance: profiling using timers and bandwidth tests</li>
+        <li>Advanced application examples such as image convolution, Black-Scholes options pricing and binomial options pricing</li>
+		</ul>
+		Refer to the following READMEs for more information (
+		<a href="doc/OpenCL_Release_Notes.txt">README</a> )
+
+		</p>
+		<p>The NVIDIA OpenCL Toolkit is required to compile code samples. Please obtain the OpenCL Toolkit from <a href="http://www.nvidia.com/opencl">here</a>.</p>
+
+		<table width="100%"  border="0">
+			<tr>
+			<td width="65%"><font face="Arial"><b> Select the category to view:</b></font></td>
+			<td width="35%"></td>
+			</tr>
+			<tr>
+			<td width="65%">
+			<form method="POST" action="samples.html">
+			<select size="1" name="pageSelector" onChange=pageSelectorGoTo()>
+				<option selected value="samples.html">All Code Samples</option>
+
+			</select></form></td>
+			<td width="35%"><div align="right"></div></td>
+			</tr>
+		</table>
+              
+		<table width="575" border="0">
+
+		<!-- generated html start -->
+			<tr>
+			  <td colspan="3" class="separator"><a id="oclDeviceQuery"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Device Query&nbsp;<a href="#oclDeviceQuery"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This sample enumerates the properties of the OpenCL devices present in the system.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclDeviceQuery" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclBandwidthTest"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Bandwidth Test&nbsp;<a href="#oclBandwidthTest"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This is a simple test program to measure the memcopy bandwidth of the GPU. It currently is capable of measuring device to device copy bandwidth, host to device and host to device copy bandwidth for pageable and page-locked memory, memory mapped and direct access.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclBandwidthTest" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclVectorAdd"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Vector Addition&nbsp;<a href="#oclVectorAdd"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">Element by element addition of two 1-dimensional arrays.  Implemented in OpenCL for CUDA GPU's, with functional comparison against a simple C++ host CPU implementation.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclVectorAdd" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclDotProduct"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Dot Product&nbsp;<a href="#oclDotProduct"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">Dot Product (scalar product) of set of input vector pairs.  Implemented in OpenCL for CUDA GPU's, with functional comparison against a simple C++ host CPU implementation.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclDotProduct" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclMatVecMul"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Matrix Vector Multiplication&nbsp;<a href="#oclMatVecMul"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">Simple matrix-vector multiplication example showing increasingly optimized implementations.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclMatVecMul" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclSimpleMultiGPU"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Simple Multi-GPU&nbsp;<a href="#oclSimpleMultiGPU"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This application demonstrates how to make use of multiple GPUs in OpenCL.
+</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclSimpleMultiGPU" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclSimpleGL"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Simple OpenGL Interop&nbsp;<a href="#oclSimpleGL"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">Simple program which demonstrates interoperability between OpenCL and OpenGL. The program modifies vertex positions with OpenCL and uses OpenGL to render the geometry.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclSimpleGL" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclScan"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Scan&nbsp;<a href="#oclScan"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This example demonstrates an efficient OpenCL implementation of parallel prefix sum, also known as "scan". Given an array of numbers, scan computes a new array in which each element is the sum of all the elements before it in the input array.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclScan" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclReduction"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">Parallel Reduction&nbsp;<a href="#oclReduction"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">A parallel sum reduction that computes the sum of large arrays of values.  This sample demonstrates several important optimization strategies for parallel algorithms like reduction.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclReduction" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclTranspose"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Matrix Transpose&nbsp;<a href="#oclTranspose"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">Efficient matrix transpose.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclTranspose" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclMatrixMul"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Matrix Multiplication&nbsp;<a href="#oclMatrixMul"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This sample implements matrix multiplication and is exactly the same as Chapter 6 of the programming guide.
+It has been written for clarity of exposition to illustrate various OpenCL programming principles, not with the goal of providing the most performant generic kernel for matrix multiplication.
+CUBLAS provides high-performance matrix multiplication.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclMatrixMul" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclDCT8x8"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL DCT 8x8&nbsp;<a href="#oclDCT8x8"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This sample demonstrates how Discrete Cosine Transform (DCT) for 8x8 blocks can be implemented in OpenCL.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclDCT8x8" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclDXTCompression"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL DirectX Texture Compressor (DXTC)&nbsp;<a href="#oclDXTCompression"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">High Quality DXT Compression using OpenCL.
+
+This example shows how to implement an existing computationally-intensive CPU compression algorithm in parallel on the GPU, and obtain an order of magnitude performance improvement.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <a href="OpenCL/src/oclDXTCompression/doc/opencl_dxtc.pdf" name="path">Whitepaper</a><br />
+			  <a href="OpenCL/src/oclDXTCompression" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclRadixSort"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Radix Sort&nbsp;<a href="#oclRadixSort"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This sample demonstrates a very fast and efficient parallel radix sort implemented in OpenCL for CUDA GPUs.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclRadixSort" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclSortingNetworks"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Sorting Networks&nbsp;<a href="#oclSortingNetworks"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This sample implements bitonic sort algorithm for batches of short arrays</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclSortingNetworks" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclBlackScholes"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Black-Scholes Option Pricing&nbsp;<a href="#oclBlackScholes"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This sample evaluates fair call and put prices for a given set of European options by Black-Scholes formula.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <a href="OpenCL/src/oclBlackScholes/doc/oclBlackScholes.pdf" name="path">Whitepaper</a><br />
+			  <a href="OpenCL/src/oclBlackScholes" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclMersenneTwister"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Mersenne Twister&nbsp;<a href="#oclMersenneTwister"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This sample implements Mersenne Twister random number generator and Cartesian Box-Muller transformation on the GPU.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclMersenneTwister" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclHistogram"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL 64-bin and 256-bin Histogram&nbsp;<a href="#oclHistogram"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This sample demonstrates efficient implementation of 64-bin and 256-bin histograms.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <a href="OpenCL/src/oclHistogram/doc/oclHistogram.pdf" name="path">Whitepaper</a><br />
+			  <a href="OpenCL/src/oclHistogram" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclPostprocessGL"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Post-Process OpenGL-Rendered Image&nbsp;<a href="#oclPostprocessGL"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This sample shows how to post-process an image rendered in OpenGL using OpenCL.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclPostprocessGL" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclSimpleTexture3D"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">Simple Texture 3D&nbsp;<a href="#oclSimpleTexture3D"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">Simple example that demonstrates use of 3D textures in OpenCL.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclSimpleTexture3D" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclBoxFilter"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Box Filter 8x8&nbsp;<a href="#oclBoxFilter"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">Linear 2-dimensional 8x8 Box Filter of RGBA image.  Implemented in OpenCL for CUDA GPU's, with performance comparison against simple C++ on host CPU. Each of the R, G, B and A channels are treated independently with results computed concurrently for each.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclBoxFilter" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclSobelFilter"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Sobel Filter&nbsp;<a href="#oclSobelFilter"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">2-dimensional 3x3 Sobel Magnitude Filter of RGBA image.  Implemented in OpenCL for CUDA GPU's, with performance comparison against simple C++ on host CPU. Gradient magnitude for each of the R, G & B channels is computed concurrently and independently, then combined into a single gradient intensity with linear weighting factors.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclSobelFilter" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclMedianFilter"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Median Filter&nbsp;<a href="#oclMedianFilter"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">Multi-GPU enabled, 2-dimensional 3x3 Median Filter of RGBA image.  Implemented in OpenCL for CUDA GPU's, with performance comparison against simple C++ on host CPU. Each of the R, G & B channels are treated independently with results computed concurrently for each.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclMedianFilter" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclRecursiveGaussian"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Recursive Gaussian Filter&nbsp;<a href="#oclRecursiveGaussian"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">2-dimensional Gaussian Blur Filter of RGBA image using IRF method.  Implemented in OpenCL for CUDA GPU's, with performance comparison against simple C++ on host CPU. Each of the R, G, B and A channels are treated independently with results computed concurrently for each.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclRecursiveGaussian" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclVolumeRender"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL Volume rendering&nbsp;<a href="#oclVolumeRender"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">This sample demonstrates basic volume rendering using 3D textures.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclVolumeRender" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>			<tr>
+			  <td colspan="3" class="separator"><a id="oclNbody"><hr /></a></td>
+			</tr>
+			<tr>
+			  <td width="71%" rowspan ="1" align="left" valign="top" class="title"><span class="itemName" name="path">OpenCL N-Body Physics Simulation&nbsp;<a href="#oclNbody"><img src="releaseNotesData/link.jpg" alt="For a direct link to this sample, right-click and copy the URL (shortcut) of this link icon." class="anchorImage" /></a></span><br/>
+			  <br/>
+			  <span class="description">Gravitational Simulation of a large # of bodies.  Implemented in OpenCL for CUDA GPU's.</span></td>
+  			  <td rowspan ="1" width="5" align="left" valign="top" class="verticalBder">&nbsp;</td>
+			  <td rowspan ="1" align="right" valign="top" class="itemMinspec"><a href="http://www.nvidia.com/page/geforce8.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/GEF8_2D_wte.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><br /><a href="http://www.nvidia.com/page/quadronvs.html" name="MinimumGPU" target="_blank"><img src="releaseNotesData/QUA_FX_4600_White.gif" class="itemMinspec" alt="Minimum Required GPU" /></a><b>or later</b><br /><a href="http://www.nvidia.com/object/tesla_computing_solutions.html"" name="MinimumGPU" target="_blank"><img src="releaseNotesData/tesla.gif" class="itemMinspec" alt="Minimum Required GPU" /></a>
+			  <p><span class="links">
+			  <br />
+                          <br />
+			  <br />
+			  <a href="OpenCL/src/oclNbody" name="path">Browse Files</a><br />
+			  
+			  </span>
+			  </p>
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right" valign="top" >
+			  </td>
+			</tr>
+		<!-- generated html end -->
+
+		</table>
+
+</div>
+<div align="right" style=" color:#999999;">Last Update: 8/30/2009</div>
+</td>
+</tr>
+</table>
+</body>
+</html>

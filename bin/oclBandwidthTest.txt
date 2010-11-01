@@ -1,0 +1,14 @@
+./oclBandwidthTest Starting...
+
+Running on...
+
+ Device GeForce GTX 275
+ Quick Mode
+
+Failed to create OpenCL context!
+
+TEST FAILED !!!
+
+
+Press <Enter> to Quit...
+-----------------------------------------------------------
