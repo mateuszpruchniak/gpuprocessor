@@ -17,9 +17,9 @@
 #define OCL_UTILS_H
 
 // Common headers:  Cross-API utililties and OpenCL header
-#include <shrUtils.h>
-#include <CL/cl.h>
-#include <CL/clext.h>
+#include "shrUtils.h"
+#include "CL/cl.h"
+#include "CL/clext.h"
 
 // reminders for output window and build log
 #ifdef _WIN32

@@ -53,11 +53,11 @@ HP_64 =	$(shell uname -m | grep 64)
 # Basic directory setup for SDK
 # (override directories only if they are not already defined)
 SRCDIR     ?= 
-ROOTDIR    ?= ../../../
+ROOTDIR    ?= ../../
 ROOTOBJDIR ?= obj
 LIBDIR     := $(ROOTDIR)/shared/lib/
 SHAREDDIR  := $(ROOTDIR)/shared/
-OCLROOTDIR := $(ROOTDIR)/OpenCL/
+OCLROOTDIR := $(ROOTDIR)/OpenCL-Lib/
 OCLCOMMONDIR ?= $(OCLROOTDIR)/common/
 OCLBINDIR ?= $(OCLROOTDIR)/bin/
 BINDIR     ?= $(OCLBINDIR)/$(OSLOWER)
