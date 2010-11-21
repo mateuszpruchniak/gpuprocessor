@@ -1,0 +1,25 @@
+./oclBandwidthTest Starting...
+
+Running on...
+
+ Device GeForce GTX 275
+ Quick Mode
+
+ Host to Device Bandwidth, 1 Device(s), Paged memory, direct access
+   Transfer Size (Bytes)	Bandwidth(MB/s)
+   33554432			2993.0
+
+ Device to Host Bandwidth, 1 Device(s), Paged memory, direct access
+   Transfer Size (Bytes)	Bandwidth(MB/s)
+   33554432			2713.1
+
+ Device to Device Bandwidth, 1 Device(s)
+   Transfer Size (Bytes)	Bandwidth(MB/s)
+   33554432			97820.3
+
+
+TEST PASSED
+
+
+Press <Enter> to Quit...
+-----------------------------------------------------------

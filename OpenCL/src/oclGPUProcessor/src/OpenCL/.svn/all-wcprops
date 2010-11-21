@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svnroot/gpuprocessor/!svn/ver/45/OpenCL
+END
+MedianFilter.cl
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/gpuprocessor/!svn/ver/42/OpenCL/MedianFilter.cl
+END
+ErodeFilter.cl
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/gpuprocessor/!svn/ver/42/OpenCL/ErodeFilter.cl
+END
+GPUCode.cl
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/gpuprocessor/!svn/ver/42/OpenCL/GPUCode.cl
+END
+DilateFilter.cl
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/gpuprocessor/!svn/ver/42/OpenCL/DilateFilter.cl
+END
+Binarization.cl
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/gpuprocessor/!svn/ver/42/OpenCL/Binarization.cl
+END
+MinFilter.cl
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/gpuprocessor/!svn/ver/42/OpenCL/MinFilter.cl
+END
+LUTFilter.cl
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/gpuprocessor/!svn/ver/42/OpenCL/LUTFilter.cl
+END
+MaxFilter.cl
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/gpuprocessor/!svn/ver/42/OpenCL/MaxFilter.cl
+END
+HighpassFilter.cl
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/gpuprocessor/!svn/ver/42/OpenCL/HighpassFilter.cl
+END
+RGB2HSV.cl
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/gpuprocessor/!svn/ver/45/OpenCL/RGB2HSV.cl
+END
+LowpassFilter.cl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/gpuprocessor/!svn/ver/42/OpenCL/LowpassFilter.cl
+END
+RGB2YUV.cl
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/gpuprocessor/!svn/ver/45/OpenCL/RGB2YUV.cl
+END
