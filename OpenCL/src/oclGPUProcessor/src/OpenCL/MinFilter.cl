@@ -1,10 +1,9 @@
-__kernel void ckMin(__global uchar* ucSource,
+﻿__kernel void ckMin(__global uchar* ucSource,
                       __local uchar* ucLocalData, int iLocalPixPitch, 
-                      unsigned int uiImageWidth, unsigned int uiDevImageHeight, int channels)
+                      unsigned int uiImageWidth, unsigned int uiDevImageHeight, int nChannels)
 {
-	nChannels = channels;
-
-	LoadToLocalMemNew(ucSource,ucLocalData, iLocalPixPitch, uiImageWidth, uiDevImageHeight);
+	
+	LoadToLocalMemNew(ucSource,ucLocalData, iLocalPixPitch, uiImageWidth, uiDevImageHeight,nChannels);
 	    
 	barrier(CLK_LOCAL_MEM_FENCE);
 
@@ -17,61 +16,61 @@ __kernel void ckMin(__global uchar* ucSource,
     int iLocalPixOffset = mul24((int)get_local_id(1), iLocalPixPitch) + get_local_id(0);
 
 	// Row1 Left Pix (RGB)
-	fMinimalEstimate[0] = GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x;					// red
-	fMinimalEstimate[1] = GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y;				    // green
-	fMinimalEstimate[2] = GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z;				    //blue
+	fMinimalEstimate[0] = GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x;					// red
+	fMinimalEstimate[1] = GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y;				    // green
+	fMinimalEstimate[2] = GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z;				    //blue
     ++iLocalPixOffset;
 
 	// Row1 Middle Pix (RGB)
-    fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ;					
-	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ;						
-	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ;	
+    fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ;					
+	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ;						
+	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ;	
     ++iLocalPixOffset;
 
 	// Row1 Right Pix (RGB)
-	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ;					
-	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ;						
-	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ;						
+	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ;					
+	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ;						
+	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ;						
 
 	// set the offset into SMEM for next row
 	iLocalPixOffset += (iLocalPixPitch - 2);	
 
 	// Row2 Left Pix (RGB)
-	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ;					
-	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ;						
-	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ;	
+	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ;					
+	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ;						
+	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ;	
     ++iLocalPixOffset;				
 
 	// Row2 Middle Pix (RGB)
-	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ;					
-	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ;						
-	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ;		
+	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ;					
+	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ;						
+	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ;		
     ++iLocalPixOffset;				
 
 	// Row2 Right Pix (RGB)
-	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ;					
-	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ;						
-	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ;					
+	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ;					
+	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ;						
+	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ;					
 
 	// set the offset into SMEM for next row
 	iLocalPixOffset += (iLocalPixPitch - 2);	
 
 	// Row3 Left Pix (RGB)
-	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ;					
-	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ;						
-	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ;		
+	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ;					
+	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ;						
+	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ;		
     ++iLocalPixOffset;					
 
 	// Row3 Middle Pix (RGB)
-	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ;					
-	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ;						
-	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ;	
+	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ;					
+	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ;						
+	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ;	
     ++iLocalPixOffset;			
 
 	// Row3 Right Pix (RGB)
-	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x ;					
-	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y ;						
-	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).z ;					
+	fMinimalEstimate[0] = fMinimalEstimate[0] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ? fMinimalEstimate[0] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x ;					
+	fMinimalEstimate[1] = fMinimalEstimate[1] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ? fMinimalEstimate[1] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y ;						
+	fMinimalEstimate[2] = fMinimalEstimate[2] < GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ? fMinimalEstimate[2] : GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).z ;					
 
 
     uchar4 result;
@@ -82,6 +81,6 @@ __kernel void ckMin(__global uchar* ucSource,
 	// Write out to GMEM with restored offset
 	if((iDevYPrime < uiDevImageHeight) && (iImagePosX < uiImageWidth))
 	{
-		    setData(ucSource,result.x ,result.y, result.z, iDevGMEMOffset );
+		    setData(ucSource,result.x ,result.y, result.z, iDevGMEMOffset,nChannels );
 	}
 }

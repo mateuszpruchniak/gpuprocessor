@@ -1,17 +1,16 @@
-
+﻿
 
 
 
 __kernel void ckBin(__global uchar* ucSource,unsigned int Threshold,
-                      unsigned int uiImageWidth, unsigned int uiDevImageHeight,unsigned int channels)
+                      unsigned int uiImageWidth, unsigned int uiDevImageHeight,unsigned int nChannels)
 {
-		nChannels = channels;
 
 		int iImagePosX = get_global_id(0);
 	    int iDevYPrime = get_global_id(1) - 1;  // Shift offset up 1 radius (1 row) for reads
 	    int iDevGMEMOffset = mul24(iDevYPrime, (int)get_global_size(0)) + iImagePosX;
 
-		uchar4 input = GetDataFromGlobalMemory(ucSource,iDevGMEMOffset);
+		uchar4 input = GetDataFromGlobalMemory(ucSource,iDevGMEMOffset,nChannels);
 
 		float fTemp =  0.30f * (int)input.x + 0.30f * (int)input.y + 0.30f * (int)input.z;
 
@@ -28,6 +27,6 @@ __kernel void ckBin(__global uchar* ucSource,unsigned int Threshold,
 		// Write out to GMEM with restored offset
 	    if((iDevYPrime < uiDevImageHeight) && (iImagePosX < uiImageWidth))
 	    {
-		     setData(ucSource,input.x ,input.x, input.x, iDevGMEMOffset);
+		     setData(ucSource,input.x ,input.x, input.x, iDevGMEMOffset,nChannels);
 	    }
 }

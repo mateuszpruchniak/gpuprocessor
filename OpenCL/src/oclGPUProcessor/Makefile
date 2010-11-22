@@ -37,7 +37,7 @@
 EXECUTABLE	:= oclGPUProcessor
 # C/C++ source files (compiled with gcc / c++)
 SRCDIR		:= src/
-CCFILES		:= main.cpp GPUTransferManager.cpp GPUImageProcessor.cpp  Filter.cpp ContextFilter.cpp MeanFilter.cpp LUTFilter.cpp SobelFilter.cpp OpenFilter.cpp LowpassFilter.cpp ContextFreeFilter.cpp HighpassFilter.cpp LinearFilter.cpp DilateFilter.cpp ErodeFilter.cpp MorphologyFilter.cpp NonLinearFilter.cpp
+CCFILES		:= main.cpp GPUTransferManager.cpp GPUImageProcessor.cpp  Filter.cpp ContextFilter.cpp MeanFilter.cpp LUTFilter.cpp SobelFilter.cpp OpenFilter.cpp LowpassFilter.cpp ContextFreeFilter.cpp HighpassFilter.cpp LinearFilter.cpp DilateFilter.cpp ErodeFilter.cpp MorphologyFilter.cpp NonLinearFilter.cpp MeanVariableCentralPointFilter.cpp
 INCDIR		:= inc/
 
 ################################################################################

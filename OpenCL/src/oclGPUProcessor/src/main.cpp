@@ -161,15 +161,16 @@ int main(int argc, const char** argv)
 		{
 			maskV[i] = 1;
 		}
-
-		//GPU->AddProcessing( new MeanVariableCentralPointFilter(GPU->GPUContext,GPU->Transfer,0) );
+		
+		GPU->AddProcessing( new MeanVariableCentralPointFilter(GPU->GPUContext,GPU->Transfer,0) );
+		
 		//GPU->AddProcessing( new MeanFilter(GPU->GPUContext,GPU->Transfer) );
 		//GPU->AddProcessing( new MedianFilter(GPU->GPUContext,GPU->Transfer) );
 		//GPU->AddProcessing( new DilateFilter(GPU->GPUContext,transf) );
 		//GPU->AddProcessing( new ErodeFilter(GPU->GPUContext,GPU->Transfer) );
 		
 		//GPU->AddProcessing( new LUTFilter(GPU->GPUContext,GPU->Transfer,lut) );
-		GPU->AddProcessing( new SobelFilter(GPU->GPUContext,GPU->Transfer) );
+		//GPU->AddProcessing( new SobelFilter(GPU->GPUContext,GPU->Transfer) );
 		//GPU->AddProcessing( new MinFilter(GPU->GPUContext,GPU->Transfer) );
 		////GPU->AddProcessing( new MaxFilter(GPU->GPUContext,GPU->Transfer) );
 		//GPU->AddProcessing( new OpenFilter(GPU->GPUContext,GPU->Transfer) );
@@ -186,7 +187,7 @@ int main(int argc, const char** argv)
 		double duration = 0;
 		int i = 0;
 		start = clock();
-		for( ; i < 100 ; i++)
+		for( ; i < 10 ; i++)
 		{
 			GPU->Transfer->SendImage(newImage);
 			GPU->Process();

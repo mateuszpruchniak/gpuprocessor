@@ -1,15 +1,14 @@
-
+﻿
 
 
 
 
 __kernel void ckDilate(__global uchar* ucSource,
                       __local uchar* ucLocalData, int iLocalPixPitch, 
-                      unsigned int uiImageWidth, unsigned int uiDevImageHeight, int channels)
+                      unsigned int uiImageWidth, unsigned int uiDevImageHeight, int nChannels)
 {
-		nChannels = channels;
-
-	    LoadToLocalMemNew(ucSource,ucLocalData, iLocalPixPitch, uiImageWidth, uiDevImageHeight);
+		
+	    LoadToLocalMemNew(ucSource,ucLocalData, iLocalPixPitch, uiImageWidth, uiDevImageHeight,nChannels);
 	
 
 	    int iImagePosX = get_global_id(0);
@@ -31,24 +30,24 @@ __kernel void ckDilate(__global uchar* ucSource,
 	    // set local offset
 	    iLocalPixOffset = mul24((int)get_local_id(1), iLocalPixPitch) + get_local_id(0);
 
-		//GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x
+		//GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x
 
 	    // NW
-	    if(GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y == 255 ) 
+	    if(GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y == 255 ) 
 	    {
 		isOne = 1;
 	    } 
 	    iLocalPixOffset++;
 	
 	    // N
-	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y == 255 ) 
+	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y == 255 ) 
 	    {
 		isOne = 1;
 	    } 
 	    iLocalPixOffset++;
 
 	    // NE
-	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y == 255 ) 
+	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y == 255 ) 
 	    {
 		isOne = 1;
 	    }  
@@ -57,7 +56,7 @@ __kernel void ckDilate(__global uchar* ucSource,
 	    iLocalPixOffset += (iLocalPixPitch - 2);    
 		        
 	    // W
-	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y == 255 ) 
+	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y == 255 ) 
 	    {
 		isOne = 1;
 	    } 
@@ -68,7 +67,7 @@ __kernel void ckDilate(__global uchar* ucSource,
 	    iLocalPixOffset++;
 
 	    // E
-	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y == 255 ) 
+	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y == 255 ) 
 	    {
 		isOne = 1;
 	    } 
@@ -77,21 +76,21 @@ __kernel void ckDilate(__global uchar* ucSource,
 	    iLocalPixOffset += (iLocalPixPitch - 2);    
 
 	    // SW
-	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y == 255 ) 
+	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y == 255 ) 
 	    {
 		isOne = 1;
 	    }  
 		iLocalPixOffset++;
 
 	    // S
-	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y == 255 ) 
+	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y == 255 ) 
 	    {
 		isOne = 1;
 	    }  
 		iLocalPixOffset++;
 
 	    // SE
-	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).y == 255 ) 
+	    if(isOne == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).y == 255 ) 
 	    {
 		isOne = 1;
 	    } 
@@ -114,6 +113,6 @@ __kernel void ckDilate(__global uchar* ucSource,
 		// Write out to GMEM with restored offset
 	    if((iDevYPrime < uiDevImageHeight) && (iImagePosX < uiImageWidth))
 	    {
-			setData(ucSource,pix.x ,pix.y, pix.z, iDevGMEMOffset );
+			setData(ucSource,pix.x ,pix.y, pix.z, iDevGMEMOffset,nChannels );
 	    }
 }

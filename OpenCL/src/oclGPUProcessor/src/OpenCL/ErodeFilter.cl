@@ -1,14 +1,13 @@
-
+﻿
 
 
 
 __kernel void ckErode(__global uchar* ucSource,
                       __local uchar* ucLocalData, int iLocalPixPitch, 
-                      unsigned int uiImageWidth, unsigned int uiDevImageHeight, int channels)
+                      unsigned int uiImageWidth, unsigned int uiDevImageHeight, int nChannels)
 {
-		nChannels = channels;
-
-	    LoadToLocalMemNew(ucSource,ucLocalData, iLocalPixPitch, uiImageWidth, uiDevImageHeight);
+		
+	    LoadToLocalMemNew(ucSource,ucLocalData, iLocalPixPitch, uiImageWidth, uiDevImageHeight,nChannels);
 
 	    barrier(CLK_LOCAL_MEM_FENCE);
 
@@ -24,21 +23,21 @@ __kernel void ckErode(__global uchar* ucSource,
 	    int iLocalPixOffset = mul24((int)get_local_id(1), iLocalPixPitch) + get_local_id(0);
 
 	    // NW
-	    if(GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x == 0 ) 
+	    if(GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x == 0 ) 
 	    {
 		isZero = 1;
 	    } 
 	    iLocalPixOffset++;
 	
 	    // N
-	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x == 0 ) 
+	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x == 0 ) 
 	    {
 		isZero = 1;
 	    } 
 	    iLocalPixOffset++;
 
 	    // NE
-	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x == 0 )
+	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x == 0 )
 	    {
 		isZero = 1;
 	    } 
@@ -47,7 +46,7 @@ __kernel void ckErode(__global uchar* ucSource,
 	    iLocalPixOffset += (iLocalPixPitch - 2);    
 		        
 	    // W
-	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x == 0 )
+	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x == 0 )
 	    {
 		isZero = 1;
 	    } 
@@ -58,7 +57,7 @@ __kernel void ckErode(__global uchar* ucSource,
 	    iLocalPixOffset++;
 
 	    // E
-	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x == 0 )
+	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x == 0 )
 	    {
 		isZero = 1;
 	    } 
@@ -67,21 +66,21 @@ __kernel void ckErode(__global uchar* ucSource,
 	    iLocalPixOffset += (iLocalPixPitch - 2);    
 
 	    // SW
-	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x == 0 )
+	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x == 0 )
 	    {
 		isZero = 1;
 	    } 
 		iLocalPixOffset++;
 
 	    // S
-	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x == 0 )
+	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x == 0 )
 	    {
 		isZero = 1;
 	    } 
 		iLocalPixOffset++;
 
 	    // SE
-	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset).x == 0 )
+	    if(isZero == 0 && GetDataFromLocalMemory(ucLocalData,iLocalPixOffset,nChannels).x == 0 )
 	    {
 		isZero = 1;
 	    } 
@@ -103,7 +102,7 @@ __kernel void ckErode(__global uchar* ucSource,
 		// Write out to GMEM with restored offset
 	    if((iDevYPrime < uiDevImageHeight) && (iImagePosX < uiImageWidth))
 	    {
-		    setData(ucSource,pix.x ,pix.y, pix.z, iDevGMEMOffset );
+		    setData(ucSource,pix.x ,pix.y, pix.z, iDevGMEMOffset, nChannels);
 	    }
 }
 
